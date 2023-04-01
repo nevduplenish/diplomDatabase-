@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="AddFormArSt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddFormReEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddFormStRe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ArrivalStockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExpenseAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecipeAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecipeExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StockAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StockRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
