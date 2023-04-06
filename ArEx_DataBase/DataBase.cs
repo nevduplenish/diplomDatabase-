@@ -11,7 +11,7 @@ namespace ArEx_DataBase
     class DataBase
     {
 
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source = DESKTOP-5HFGC8L\SQLEXPRESS;Initial Catalog=ArExDB;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source = DESKTOP-5HFGC8L\SQLEXPRESS;Initial Catalog=ArExDb;Integrated Security=True");
         
         public void openConnection()
         {

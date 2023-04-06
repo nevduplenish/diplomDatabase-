@@ -43,22 +43,25 @@ namespace ArEx_DataBase
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(805, 60);
+            this.panel1.Size = new System.Drawing.Size(489, 60);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(40, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(566, 29);
+            this.label1.Size = new System.Drawing.Size(329, 58);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Создание записи в таблицу \"Рецепт шихты\"";
+            this.label1.Text = "Создание записи \r\nв таблицу \"Рецепт шихты\"";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // textBox1
             // 
@@ -89,43 +92,48 @@ namespace ArEx_DataBase
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 17);
+            this.label2.Size = new System.Drawing.Size(198, 32);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Наименование материала";
+            this.label2.Text = "Процентный унос материала\r\n на одну дозу (тонны)";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 159);
+            this.label3.Location = new System.Drawing.Point(45, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 17);
+            this.label3.Size = new System.Drawing.Size(160, 32);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Количество на один замес";
+            this.label3.Text = "Количество материала\r\n на один замес (тонны)";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 198);
+            this.label4.Location = new System.Drawing.Point(109, 212);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.Size = new System.Drawing.Size(101, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Влажность";
+            this.label4.Text = "Влажность (%)";
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.LightBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(223, 234);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 36);
             this.button1.TabIndex = 7;
             this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RecipeAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 369);
+            this.ClientSize = new System.Drawing.Size(383, 294);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

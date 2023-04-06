@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +41,6 @@ namespace ArEx_DataBase
 
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("Arrival_ID", "ID");
             dataGridView1.Columns.Add("Ar_name_material", "Наименование материала");
             dataGridView1.Columns.Add("Ar_date", "Дата прихода");
             dataGridView1.Columns.Add("Ar_number_vehicle", "Номер ТС");
@@ -102,7 +101,7 @@ namespace ArEx_DataBase
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
 
-                textBox_id.Text = row.Cells[0].Value.ToString();
+               
                 textBox_namemat.Text = row.Cells[1].Value.ToString();
                 textBox_date.Text = row.Cells[2].Value.ToString();
                 textBox_numberv.Text = row.Cells[3].Value.ToString();
@@ -225,7 +224,7 @@ namespace ArEx_DataBase
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
-            var id = textBox_id.Text;
+            
             var namemat = textBox_namemat.Text;
             var date = textBox_date.Text;
             var numberv = textBox_numberv.Text;
@@ -237,7 +236,7 @@ namespace ArEx_DataBase
             {
                 if (int.TryParse(textBox_tonnage.Text, out tonnage))
                 {
-                    dataGridView1.Rows[selectedRowIndex].SetValues(id, namemat, date, numberv, transcons, prov, tonnage);
+                    dataGridView1.Rows[selectedRowIndex].SetValues(namemat, date, numberv, transcons, prov, tonnage);
                     dataGridView1.Rows[selectedRowIndex].Cells[7].Value = RowState.Modified;
                 }
                 else
@@ -260,6 +259,41 @@ namespace ArEx_DataBase
         {
             MainForm mf = new MainForm();
             mf.Show();
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

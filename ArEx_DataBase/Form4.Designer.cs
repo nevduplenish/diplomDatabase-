@@ -49,20 +49,21 @@ namespace ArEx_DataBase
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-1, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 63);
+            this.panel1.Size = new System.Drawing.Size(491, 63);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(478, 29);
+            this.label1.Size = new System.Drawing.Size(463, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Создание записи в таблицу \"Приход\"";
             // 
@@ -119,7 +120,7 @@ namespace ArEx_DataBase
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 17);
+            this.label3.Size = new System.Drawing.Size(181, 16);
             this.label3.TabIndex = 10;
             this.label3.Text = "Наименование материала";
             // 
@@ -128,7 +129,7 @@ namespace ArEx_DataBase
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(96, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 17);
+            this.label4.Size = new System.Drawing.Size(96, 16);
             this.label4.TabIndex = 11;
             this.label4.Text = "Дата прихода";
             // 
@@ -137,7 +138,7 @@ namespace ArEx_DataBase
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(123, 155);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.Size = new System.Drawing.Size(71, 16);
             this.label5.TabIndex = 12;
             this.label5.Text = "Номер ТС";
             // 
@@ -146,7 +147,7 @@ namespace ArEx_DataBase
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(18, 187);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(178, 17);
+            this.label6.Size = new System.Drawing.Size(174, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Транспортная накладная";
             // 
@@ -155,34 +156,37 @@ namespace ArEx_DataBase
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(115, 218);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 17);
+            this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "Поставщик";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(138, 249);
+            this.label8.Location = new System.Drawing.Point(91, 249);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 17);
+            this.label8.Size = new System.Drawing.Size(108, 16);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Тоннаж";
+            this.label8.Text = "Тоннаж (тонны)";
             // 
             // button_save
             // 
+            this.button_save.BackColor = System.Drawing.Color.LightBlue;
+            this.button_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button_save.Location = new System.Drawing.Point(292, 277);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(132, 43);
             this.button_save.TabIndex = 16;
             this.button_save.Text = "Сохранить";
-            this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.UseVisualStyleBackColor = false;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(502, 332);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);

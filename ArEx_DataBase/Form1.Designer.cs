@@ -50,7 +50,7 @@ namespace ArEx_DataBase
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, 2);
@@ -86,7 +86,7 @@ namespace ArEx_DataBase
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(276, 153);
+            this.textBox1.Location = new System.Drawing.Point(216, 121);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(217, 48);
@@ -96,7 +96,7 @@ namespace ArEx_DataBase
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(276, 232);
+            this.textBox2.Location = new System.Drawing.Point(216, 200);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
@@ -106,7 +106,7 @@ namespace ArEx_DataBase
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(276, 300);
+            this.button1.Location = new System.Drawing.Point(216, 268);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(217, 46);
             this.button1.TabIndex = 3;
@@ -118,9 +118,9 @@ namespace ArEx_DataBase
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(158, 162);
+            this.label2.Location = new System.Drawing.Point(98, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 29);
+            this.label2.Size = new System.Drawing.Size(94, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Логин:";
             // 
@@ -128,9 +128,9 @@ namespace ArEx_DataBase
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(158, 241);
+            this.label3.Location = new System.Drawing.Point(98, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 29);
+            this.label3.Size = new System.Drawing.Size(109, 29);
             this.label3.TabIndex = 5;
             this.label3.Text = "Пароль:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -139,7 +139,7 @@ namespace ArEx_DataBase
             // 
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(532, 246);
+            this.pictureBox4.Location = new System.Drawing.Point(472, 214);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.TabIndex = 8;
@@ -150,7 +150,7 @@ namespace ArEx_DataBase
             // 
             this.pictureBox3.BackgroundImage = global::ArEx_DataBase.Properties.Resources.icons8_показать_пароль_50;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(499, 241);
+            this.pictureBox3.Location = new System.Drawing.Point(439, 209);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 29);
             this.pictureBox3.TabIndex = 7;
@@ -161,7 +161,7 @@ namespace ArEx_DataBase
             // 
             this.pictureBox2.BackgroundImage = global::ArEx_DataBase.Properties.Resources.icons8_показать_пароль_50__1_;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(499, 241);
+            this.pictureBox2.Location = new System.Drawing.Point(439, 209);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 29);
             this.pictureBox2.TabIndex = 6;
@@ -172,7 +172,7 @@ namespace ArEx_DataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 450);
+            this.ClientSize = new System.Drawing.Size(582, 376);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -183,7 +183,7 @@ namespace ArEx_DataBase
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "sign_up(Denis Rogozhin)";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

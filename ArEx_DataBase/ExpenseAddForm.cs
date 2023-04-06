@@ -30,10 +30,10 @@ namespace ArEx_DataBase
             dataBase.openConnection();
 
             var namemat = textBox1.Text;
-            var perday = textBox3.Text;
+            var perday = textBox2.Text;
             int remains;
 
-            if (int.TryParse(textBox2.Text, out remains))
+            if (int.TryParse(textBox2.Text, out remains))   
             {
                 var addQuery = $"insert into Expense (Ex_name_material, Ex_per_day, Ex_remains) values ('{namemat}','{perday}','{remains}')";
 
