@@ -29,25 +29,32 @@ namespace ArEx_DataBase
         {
             dataBase.openConnection();
 
+            
             var namemat = textBox_namemat.Text;
             var date = textBox_date.Text;
             var numberv = textBox_numberv.Text;
             var transcons = textBox_transcons.Text;
             var prov = textBox_prov.Text;
             int tonnage;
+            int idStock;
 
             if (int.TryParse(textBox_tonnage.Text, out tonnage))
             {
-                var addQuery = $"insert into Arrival (Ar_name_material, Ar_date, Ar_number_vehicle, Ar_number_consignment, Ar_name_provider, Ar_tonnage) values ('{namemat}','{date}','{numberv}','{transcons}','{prov}','{tonnage}')";
+                if (int.TryParse(textBox1.Text, out idStock))
+                {
 
-                var command = new SqlCommand(addQuery, dataBase.getConnection());
-                command.ExecuteNonQuery();
+                    var addQuery = $"insert into Arrival (Stock_ID, Ar_material_supplies, Ar_date, Ar_number_vehicle, Ar_number_consignment, Ar_name_provider, Ar_tonnage) values ('{idStock}','{namemat}','{date}','{numberv}','{transcons}','{prov}','{tonnage}')";
 
-                MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var command = new SqlCommand(addQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            
             else
             {
-                MessageBox.Show("Тоннаж должен иметь целочисленный формат!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Тоннаж или номер складского объекта должны иметь целочисленный формат!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             dataBase.closeConnection();
         }

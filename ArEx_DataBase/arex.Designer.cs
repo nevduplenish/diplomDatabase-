@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(arex));
             System.Windows.Forms.Label arrival_IDLabel;
             System.Windows.Forms.Label stock_IDLabel;
             System.Windows.Forms.Label ar_material_suppliesLabel;
@@ -38,16 +37,24 @@
             System.Windows.Forms.Label ar_number_consignmentLabel;
             System.Windows.Forms.Label ar_name_providerLabel;
             System.Windows.Forms.Label ar_tonnageLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(arex));
             this.arExDbDataSet = new ArEx_DataBase.ArExDbDataSet();
             this.arrivalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.arrivalTableAdapter = new ArEx_DataBase.ArExDbDataSetTableAdapters.ArrivalTableAdapter();
             this.tableAdapterManager = new ArEx_DataBase.ArExDbDataSetTableAdapters.TableAdapterManager();
             this.arrivalBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.arrivalBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.arrivalDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,13 +64,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.arrivalBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.arrival_IDTextBox = new System.Windows.Forms.TextBox();
             this.stock_IDTextBox = new System.Windows.Forms.TextBox();
             this.ar_material_suppliesTextBox = new System.Windows.Forms.TextBox();
@@ -89,6 +89,78 @@
             this.arrivalBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.arrivalDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // arrival_IDLabel
+            // 
+            arrival_IDLabel.AutoSize = true;
+            arrival_IDLabel.Location = new System.Drawing.Point(30, 290);
+            arrival_IDLabel.Name = "arrival_IDLabel";
+            arrival_IDLabel.Size = new System.Drawing.Size(64, 16);
+            arrival_IDLabel.TabIndex = 2;
+            arrival_IDLabel.Text = "Arrival ID:";
+            // 
+            // stock_IDLabel
+            // 
+            stock_IDLabel.AutoSize = true;
+            stock_IDLabel.Location = new System.Drawing.Point(30, 318);
+            stock_IDLabel.Name = "stock_IDLabel";
+            stock_IDLabel.Size = new System.Drawing.Size(60, 16);
+            stock_IDLabel.TabIndex = 4;
+            stock_IDLabel.Text = "Stock ID:";
+            // 
+            // ar_material_suppliesLabel
+            // 
+            ar_material_suppliesLabel.AutoSize = true;
+            ar_material_suppliesLabel.Location = new System.Drawing.Point(30, 346);
+            ar_material_suppliesLabel.Name = "ar_material_suppliesLabel";
+            ar_material_suppliesLabel.Size = new System.Drawing.Size(128, 16);
+            ar_material_suppliesLabel.TabIndex = 6;
+            ar_material_suppliesLabel.Text = "Ar material supplies:";
+            // 
+            // ar_dateLabel
+            // 
+            ar_dateLabel.AutoSize = true;
+            ar_dateLabel.Location = new System.Drawing.Point(30, 375);
+            ar_dateLabel.Name = "ar_dateLabel";
+            ar_dateLabel.Size = new System.Drawing.Size(53, 16);
+            ar_dateLabel.TabIndex = 8;
+            ar_dateLabel.Text = "Ar date:";
+            // 
+            // ar_number_vehicleLabel
+            // 
+            ar_number_vehicleLabel.AutoSize = true;
+            ar_number_vehicleLabel.Location = new System.Drawing.Point(30, 402);
+            ar_number_vehicleLabel.Name = "ar_number_vehicleLabel";
+            ar_number_vehicleLabel.Size = new System.Drawing.Size(117, 16);
+            ar_number_vehicleLabel.TabIndex = 10;
+            ar_number_vehicleLabel.Text = "Ar number vehicle:";
+            // 
+            // ar_number_consignmentLabel
+            // 
+            ar_number_consignmentLabel.AutoSize = true;
+            ar_number_consignmentLabel.Location = new System.Drawing.Point(30, 430);
+            ar_number_consignmentLabel.Name = "ar_number_consignmentLabel";
+            ar_number_consignmentLabel.Size = new System.Drawing.Size(150, 16);
+            ar_number_consignmentLabel.TabIndex = 12;
+            ar_number_consignmentLabel.Text = "Ar number consignment:";
+            // 
+            // ar_name_providerLabel
+            // 
+            ar_name_providerLabel.AutoSize = true;
+            ar_name_providerLabel.Location = new System.Drawing.Point(30, 458);
+            ar_name_providerLabel.Name = "ar_name_providerLabel";
+            ar_name_providerLabel.Size = new System.Drawing.Size(113, 16);
+            ar_name_providerLabel.TabIndex = 14;
+            ar_name_providerLabel.Text = "Ar name provider:";
+            // 
+            // ar_tonnageLabel
+            // 
+            ar_tonnageLabel.AutoSize = true;
+            ar_tonnageLabel.Location = new System.Drawing.Point(30, 486);
+            ar_tonnageLabel.Name = "ar_tonnageLabel";
+            ar_tonnageLabel.Size = new System.Drawing.Size(75, 16);
+            ar_tonnageLabel.TabIndex = 16;
+            ar_tonnageLabel.Text = "Ar tonnage:";
             // 
             // arExDbDataSet
             // 
@@ -146,123 +218,6 @@
             this.arrivalBindingNavigator.TabIndex = 0;
             this.arrivalBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 24);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // arrivalDataGridView
-            // 
-            this.arrivalDataGridView.AutoGenerateColumns = false;
-            this.arrivalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.arrivalDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.arrivalDataGridView.DataSource = this.arrivalBindingSource;
-            this.arrivalDataGridView.Location = new System.Drawing.Point(0, 19);
-            this.arrivalDataGridView.Name = "arrivalDataGridView";
-            this.arrivalDataGridView.RowHeadersWidth = 51;
-            this.arrivalDataGridView.RowTemplate.Height = 24;
-            this.arrivalDataGridView.Size = new System.Drawing.Size(820, 247);
-            this.arrivalDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Arrival_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Arrival_ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Stock_ID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Stock_ID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Ar_material_supplies";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Ar_material_supplies";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Ar_date";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ar_date";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Ar_number_vehicle";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ar_number_vehicle";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ar_number_consignment";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ar_number_consignment";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ar_name_provider";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Ar_name_provider";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Ar_tonnage";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Ar_tonnage";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -271,6 +226,13 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 24);
+            this.bindingNavigatorCountItem.Text = "для {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -299,6 +261,26 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -317,6 +299,11 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
             // arrivalBindingNavigatorSaveItem
             // 
             this.arrivalBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -326,14 +313,101 @@
             this.arrivalBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.arrivalBindingNavigatorSaveItem.Click += new System.EventHandler(this.arrivalBindingNavigatorSaveItem_Click);
             // 
-            // arrival_IDLabel
+            // arrivalDataGridView
             // 
-            arrival_IDLabel.AutoSize = true;
-            arrival_IDLabel.Location = new System.Drawing.Point(30, 290);
-            arrival_IDLabel.Name = "arrival_IDLabel";
-            arrival_IDLabel.Size = new System.Drawing.Size(64, 16);
-            arrival_IDLabel.TabIndex = 2;
-            arrival_IDLabel.Text = "Arrival ID:";
+            this.arrivalDataGridView.AllowUserToAddRows = false;
+            this.arrivalDataGridView.AllowUserToDeleteRows = false;
+            this.arrivalDataGridView.AutoGenerateColumns = false;
+            this.arrivalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.arrivalDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.arrivalDataGridView.DataSource = this.arrivalBindingSource;
+            this.arrivalDataGridView.Location = new System.Drawing.Point(0, 30);
+            this.arrivalDataGridView.Name = "arrivalDataGridView";
+            this.arrivalDataGridView.ReadOnly = true;
+            this.arrivalDataGridView.RowHeadersWidth = 51;
+            this.arrivalDataGridView.RowTemplate.Height = 24;
+            this.arrivalDataGridView.Size = new System.Drawing.Size(820, 247);
+            this.arrivalDataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Arrival_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Arrival_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Stock_ID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Stock_ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Ar_material_supplies";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Ar_material_supplies";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Ar_date";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ar_date";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Ar_number_vehicle";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ar_number_vehicle";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Ar_number_consignment";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Ar_number_consignment";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ar_name_provider";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Ar_name_provider";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Ar_tonnage";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Ar_tonnage";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 125;
             // 
             // arrival_IDTextBox
             // 
@@ -343,15 +417,6 @@
             this.arrival_IDTextBox.Size = new System.Drawing.Size(200, 22);
             this.arrival_IDTextBox.TabIndex = 3;
             // 
-            // stock_IDLabel
-            // 
-            stock_IDLabel.AutoSize = true;
-            stock_IDLabel.Location = new System.Drawing.Point(30, 318);
-            stock_IDLabel.Name = "stock_IDLabel";
-            stock_IDLabel.Size = new System.Drawing.Size(60, 16);
-            stock_IDLabel.TabIndex = 4;
-            stock_IDLabel.Text = "Stock ID:";
-            // 
             // stock_IDTextBox
             // 
             this.stock_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.arrivalBindingSource, "Stock_ID", true));
@@ -359,15 +424,6 @@
             this.stock_IDTextBox.Name = "stock_IDTextBox";
             this.stock_IDTextBox.Size = new System.Drawing.Size(200, 22);
             this.stock_IDTextBox.TabIndex = 5;
-            // 
-            // ar_material_suppliesLabel
-            // 
-            ar_material_suppliesLabel.AutoSize = true;
-            ar_material_suppliesLabel.Location = new System.Drawing.Point(30, 346);
-            ar_material_suppliesLabel.Name = "ar_material_suppliesLabel";
-            ar_material_suppliesLabel.Size = new System.Drawing.Size(128, 16);
-            ar_material_suppliesLabel.TabIndex = 6;
-            ar_material_suppliesLabel.Text = "Ar material supplies:";
             // 
             // ar_material_suppliesTextBox
             // 
@@ -377,15 +433,6 @@
             this.ar_material_suppliesTextBox.Size = new System.Drawing.Size(200, 22);
             this.ar_material_suppliesTextBox.TabIndex = 7;
             // 
-            // ar_dateLabel
-            // 
-            ar_dateLabel.AutoSize = true;
-            ar_dateLabel.Location = new System.Drawing.Point(30, 375);
-            ar_dateLabel.Name = "ar_dateLabel";
-            ar_dateLabel.Size = new System.Drawing.Size(53, 16);
-            ar_dateLabel.TabIndex = 8;
-            ar_dateLabel.Text = "Ar date:";
-            // 
             // ar_dateDateTimePicker
             // 
             this.ar_dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.arrivalBindingSource, "Ar_date", true));
@@ -393,15 +440,6 @@
             this.ar_dateDateTimePicker.Name = "ar_dateDateTimePicker";
             this.ar_dateDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.ar_dateDateTimePicker.TabIndex = 9;
-            // 
-            // ar_number_vehicleLabel
-            // 
-            ar_number_vehicleLabel.AutoSize = true;
-            ar_number_vehicleLabel.Location = new System.Drawing.Point(30, 402);
-            ar_number_vehicleLabel.Name = "ar_number_vehicleLabel";
-            ar_number_vehicleLabel.Size = new System.Drawing.Size(117, 16);
-            ar_number_vehicleLabel.TabIndex = 10;
-            ar_number_vehicleLabel.Text = "Ar number vehicle:";
             // 
             // ar_number_vehicleTextBox
             // 
@@ -411,15 +449,6 @@
             this.ar_number_vehicleTextBox.Size = new System.Drawing.Size(200, 22);
             this.ar_number_vehicleTextBox.TabIndex = 11;
             // 
-            // ar_number_consignmentLabel
-            // 
-            ar_number_consignmentLabel.AutoSize = true;
-            ar_number_consignmentLabel.Location = new System.Drawing.Point(30, 430);
-            ar_number_consignmentLabel.Name = "ar_number_consignmentLabel";
-            ar_number_consignmentLabel.Size = new System.Drawing.Size(150, 16);
-            ar_number_consignmentLabel.TabIndex = 12;
-            ar_number_consignmentLabel.Text = "Ar number consignment:";
-            // 
             // ar_number_consignmentTextBox
             // 
             this.ar_number_consignmentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.arrivalBindingSource, "Ar_number_consignment", true));
@@ -428,15 +457,6 @@
             this.ar_number_consignmentTextBox.Size = new System.Drawing.Size(200, 22);
             this.ar_number_consignmentTextBox.TabIndex = 13;
             // 
-            // ar_name_providerLabel
-            // 
-            ar_name_providerLabel.AutoSize = true;
-            ar_name_providerLabel.Location = new System.Drawing.Point(30, 458);
-            ar_name_providerLabel.Name = "ar_name_providerLabel";
-            ar_name_providerLabel.Size = new System.Drawing.Size(113, 16);
-            ar_name_providerLabel.TabIndex = 14;
-            ar_name_providerLabel.Text = "Ar name provider:";
-            // 
             // ar_name_providerTextBox
             // 
             this.ar_name_providerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.arrivalBindingSource, "Ar_name_provider", true));
@@ -444,15 +464,6 @@
             this.ar_name_providerTextBox.Name = "ar_name_providerTextBox";
             this.ar_name_providerTextBox.Size = new System.Drawing.Size(200, 22);
             this.ar_name_providerTextBox.TabIndex = 15;
-            // 
-            // ar_tonnageLabel
-            // 
-            ar_tonnageLabel.AutoSize = true;
-            ar_tonnageLabel.Location = new System.Drawing.Point(30, 486);
-            ar_tonnageLabel.Name = "ar_tonnageLabel";
-            ar_tonnageLabel.Size = new System.Drawing.Size(75, 16);
-            ar_tonnageLabel.TabIndex = 16;
-            ar_tonnageLabel.Text = "Ar tonnage:";
             // 
             // ar_tonnageTextBox
             // 

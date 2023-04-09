@@ -44,6 +44,8 @@ namespace ArEx_DataBase
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button_save = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@ namespace ArEx_DataBase
             // 
             // textBox_namemat
             // 
-            this.textBox_namemat.Location = new System.Drawing.Point(224, 90);
+            this.textBox_namemat.Location = new System.Drawing.Point(224, 147);
             this.textBox_namemat.Multiline = true;
             this.textBox_namemat.Name = "textBox_namemat";
             this.textBox_namemat.Size = new System.Drawing.Size(266, 25);
@@ -77,7 +79,7 @@ namespace ArEx_DataBase
             // 
             // textBox_date
             // 
-            this.textBox_date.Location = new System.Drawing.Point(224, 121);
+            this.textBox_date.Location = new System.Drawing.Point(224, 178);
             this.textBox_date.Multiline = true;
             this.textBox_date.Name = "textBox_date";
             this.textBox_date.Size = new System.Drawing.Size(266, 25);
@@ -85,7 +87,7 @@ namespace ArEx_DataBase
             // 
             // textBox_numberv
             // 
-            this.textBox_numberv.Location = new System.Drawing.Point(224, 152);
+            this.textBox_numberv.Location = new System.Drawing.Point(224, 209);
             this.textBox_numberv.Multiline = true;
             this.textBox_numberv.Name = "textBox_numberv";
             this.textBox_numberv.Size = new System.Drawing.Size(266, 25);
@@ -93,7 +95,7 @@ namespace ArEx_DataBase
             // 
             // textBox_transcons
             // 
-            this.textBox_transcons.Location = new System.Drawing.Point(224, 184);
+            this.textBox_transcons.Location = new System.Drawing.Point(224, 241);
             this.textBox_transcons.Multiline = true;
             this.textBox_transcons.Name = "textBox_transcons";
             this.textBox_transcons.Size = new System.Drawing.Size(266, 25);
@@ -101,7 +103,7 @@ namespace ArEx_DataBase
             // 
             // textBox_prov
             // 
-            this.textBox_prov.Location = new System.Drawing.Point(224, 215);
+            this.textBox_prov.Location = new System.Drawing.Point(224, 272);
             this.textBox_prov.Multiline = true;
             this.textBox_prov.Name = "textBox_prov";
             this.textBox_prov.Size = new System.Drawing.Size(266, 25);
@@ -109,7 +111,7 @@ namespace ArEx_DataBase
             // 
             // textBox_tonnage
             // 
-            this.textBox_tonnage.Location = new System.Drawing.Point(224, 246);
+            this.textBox_tonnage.Location = new System.Drawing.Point(224, 303);
             this.textBox_tonnage.Multiline = true;
             this.textBox_tonnage.Name = "textBox_tonnage";
             this.textBox_tonnage.Size = new System.Drawing.Size(266, 25);
@@ -118,7 +120,7 @@ namespace ArEx_DataBase
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 93);
+            this.label3.Location = new System.Drawing.Point(18, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 16);
             this.label3.TabIndex = 10;
@@ -127,7 +129,7 @@ namespace ArEx_DataBase
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(96, 124);
+            this.label4.Location = new System.Drawing.Point(96, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 16);
             this.label4.TabIndex = 11;
@@ -136,7 +138,7 @@ namespace ArEx_DataBase
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(123, 155);
+            this.label5.Location = new System.Drawing.Point(123, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 16);
             this.label5.TabIndex = 12;
@@ -145,7 +147,7 @@ namespace ArEx_DataBase
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 187);
+            this.label6.Location = new System.Drawing.Point(18, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(174, 16);
             this.label6.TabIndex = 13;
@@ -154,7 +156,7 @@ namespace ArEx_DataBase
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(115, 218);
+            this.label7.Location = new System.Drawing.Point(115, 275);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 14;
@@ -163,7 +165,7 @@ namespace ArEx_DataBase
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(91, 249);
+            this.label8.Location = new System.Drawing.Point(91, 306);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 16);
             this.label8.TabIndex = 15;
@@ -174,7 +176,7 @@ namespace ArEx_DataBase
             this.button_save.BackColor = System.Drawing.Color.LightBlue;
             this.button_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_save.Location = new System.Drawing.Point(292, 277);
+            this.button_save.Location = new System.Drawing.Point(292, 334);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(132, 43);
             this.button_save.TabIndex = 16;
@@ -182,11 +184,30 @@ namespace ArEx_DataBase
             this.button_save.UseVisualStyleBackColor = false;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(185, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Номер складского объекта";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(224, 118);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(266, 25);
+            this.textBox1.TabIndex = 17;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 332);
+            this.ClientSize = new System.Drawing.Size(533, 386);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button_save);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -228,5 +249,7 @@ namespace ArEx_DataBase
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button_save;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

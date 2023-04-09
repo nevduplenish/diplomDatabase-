@@ -41,7 +41,9 @@ namespace ArEx_DataBase
 
         private void CreateColumns()
         {
-            dataGridView1.Columns.Add("Ar_name_material", "Наименование материала");
+            dataGridView1.Columns.Add("Arrival_ID", "№Поставки");
+            dataGridView1.Columns.Add("Stock_ID", "№Складского объекта");
+            dataGridView1.Columns.Add("Ar_material_supplies", "Наименование материала");
             dataGridView1.Columns.Add("Ar_date", "Дата прихода");
             dataGridView1.Columns.Add("Ar_number_vehicle", "Номер ТС");
             dataGridView1.Columns.Add("Ar_number_consigment", "Транспортная накладная");
@@ -53,7 +55,7 @@ namespace ArEx_DataBase
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetInt64(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetInt32(6), RowState.ModifiedNew);
+            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetFloat(7), RowState.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -102,12 +104,12 @@ namespace ArEx_DataBase
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
 
                
-                textBox_namemat.Text = row.Cells[1].Value.ToString();
-                textBox_date.Text = row.Cells[2].Value.ToString();
-                textBox_numberv.Text = row.Cells[3].Value.ToString();
-                textBox_transcons.Text = row.Cells[4].Value.ToString();
-                textBox_prov.Text = row.Cells[5].Value.ToString();
-                textBox_tonnage.Text = row.Cells[6].Value.ToString();
+                textBox_namemat.Text = row.Cells[2].Value.ToString();
+                textBox_date.Text = row.Cells[3].Value.ToString();
+                textBox_numberv.Text = row.Cells[4].Value.ToString();
+                textBox_transcons.Text = row.Cells[5].Value.ToString();
+                textBox_prov.Text = row.Cells[6].Value.ToString();
+                textBox_tonnage.Text = row.Cells[7].Value.ToString();
             }
         }
 
@@ -136,7 +138,7 @@ namespace ArEx_DataBase
         {
             dgw.Rows.Clear();
 
-            string searchString = $"select * from Arrival where concat (Arrival_ID,Ar_name_material,Ar_date,Ar_number_vehicle,Ar_number_consignment,Ar_name_provider,Ar_tonnage) like '%" + textBox_search.Text + "%'";
+            string searchString = $"select * from Arrival where concat (Arrival_ID, Stock_ID, Ar_material_supplies,Ar_date,Ar_number_vehicle,Ar_number_consignment,Ar_name_provider,Ar_tonnage) like '%" + textBox_search.Text + "%'";
 
             SqlCommand com = new SqlCommand(searchString, dataBase.getConnection());
 
@@ -160,7 +162,7 @@ namespace ArEx_DataBase
 
             if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
             {
-                dataGridView1.Rows[index].Cells[7].Value = RowState.Deleted;
+                dataGridView1.Rows[index].Cells[8].Value = RowState.Deleted;
                 return;
             }
 
@@ -172,15 +174,15 @@ namespace ArEx_DataBase
 
             for (int index = 0; index < dataGridView1.Rows.Count; index++)
             {
-                var rowState = (RowState)dataGridView1.Rows[index].Cells[7].Value;
+                var rowState = (RowState)dataGridView1.Rows[index].Cells[8].Value;
 
                 if (rowState == RowState.Existed)
                         continue;
 
                 if (rowState == RowState.Deleted)
                 {
-                    var id = Convert.ToInt64(dataGridView1.Rows[index].Cells[0].Value);
-                    var deleteQuery = $"delete from Arrival where Arrival_ID = {id}";
+                    var idArrival = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"delete from Arrival where Arrival_ID = {idArrival}";
 
                     var command = new SqlCommand(deleteQuery, dataBase.getConnection());
                     command.ExecuteNonQuery();
@@ -189,15 +191,16 @@ namespace ArEx_DataBase
                 }
                 if (rowState == RowState.Modified)
                 {
-                    var id = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                    var namemat = dataGridView1.Rows[index].Cells[1].Value.ToString();
-                    var date = dataGridView1.Rows[index].Cells[2].Value.ToString();
-                    var numberv = dataGridView1.Rows[index].Cells[3].Value.ToString();
-                    var transcons = dataGridView1.Rows[index].Cells[4].Value.ToString();
-                    var prov = dataGridView1.Rows[index].Cells[5].Value.ToString();
-                    var tonnage = dataGridView1.Rows[index].Cells[6].Value.ToString();
+                    var idArrival = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                    var idStock = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                    var namemat = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                    var date = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                    var numberv = dataGridView1.Rows[index].Cells[4].Value.ToString();
+                    var transcons = dataGridView1.Rows[index].Cells[5].Value.ToString();
+                    var prov = dataGridView1.Rows[index].Cells[6].Value.ToString();
+                    var tonnage = dataGridView1.Rows[index].Cells[7].Value.ToString();
 
-                    var changeQuery = $"update Arrival set Ar_name_material = '{namemat}', Ar_date = '{date}', Ar_number_vehicle ='{numberv}', Ar_number_consignment ='{transcons}',Ar_name_provider ='{prov}',Ar_tonnage ='{tonnage}' where Arrival_ID = '{id}'";
+                    var changeQuery = $"update Arrival set Stock_ID = '{idStock}, 'Ar_material_supplies = '{namemat}', Ar_date = '{date}', Ar_number_vehicle ='{numberv}', Ar_number_consignment ='{transcons}',Ar_name_provider ='{prov}',Ar_tonnage ='{tonnage}' where Arrival_ID = '{idArrival}'";
 
                     var command = new SqlCommand(changeQuery, dataBase.getConnection());
                     command.ExecuteNonQuery();
@@ -237,7 +240,7 @@ namespace ArEx_DataBase
                 if (int.TryParse(textBox_tonnage.Text, out tonnage))
                 {
                     dataGridView1.Rows[selectedRowIndex].SetValues(namemat, date, numberv, transcons, prov, tonnage);
-                    dataGridView1.Rows[selectedRowIndex].Cells[7].Value = RowState.Modified;
+                    dataGridView1.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
                 }
                 else
                 {
@@ -257,8 +260,7 @@ namespace ArEx_DataBase
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
-            mf.Show();
+         
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
