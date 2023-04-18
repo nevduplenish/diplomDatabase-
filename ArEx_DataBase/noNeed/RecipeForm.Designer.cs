@@ -98,7 +98,7 @@ namespace ArEx_DataBase
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(26, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 32);
+            this.label1.Size = new System.Drawing.Size(214, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Рецепт шихты";
             // 
@@ -161,7 +161,7 @@ namespace ArEx_DataBase
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(149, 150);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 17);
+            this.label7.Size = new System.Drawing.Size(78, 16);
             this.label7.TabIndex = 8;
             this.label7.Text = "Влажность";
             // 
@@ -170,7 +170,7 @@ namespace ArEx_DataBase
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(46, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(185, 17);
+            this.label6.Size = new System.Drawing.Size(182, 16);
             this.label6.TabIndex = 7;
             this.label6.Text = "Количество на один замес";
             // 
@@ -179,7 +179,7 @@ namespace ArEx_DataBase
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(46, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(182, 17);
+            this.label5.Size = new System.Drawing.Size(181, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Наименование материала";
             // 
@@ -188,7 +188,7 @@ namespace ArEx_DataBase
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(207, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 17);
+            this.label4.Size = new System.Drawing.Size(20, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "ID";
             // 

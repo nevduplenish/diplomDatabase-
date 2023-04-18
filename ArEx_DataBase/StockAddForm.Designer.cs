@@ -69,28 +69,28 @@ namespace ArEx_DataBase
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 93);
+            this.textBox1.Location = new System.Drawing.Point(222, 155);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(231, 22);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(191, 121);
+            this.textBox2.Location = new System.Drawing.Point(222, 95);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(231, 22);
             this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(191, 149);
+            this.textBox3.Location = new System.Drawing.Point(222, 123);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(231, 22);
             this.textBox3.TabIndex = 3;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(191, 177);
+            this.textBox4.Location = new System.Drawing.Point(222, 208);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(231, 22);
             this.textBox4.TabIndex = 4;
@@ -98,7 +98,7 @@ namespace ArEx_DataBase
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 93);
+            this.label2.Location = new System.Drawing.Point(-2, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 16);
             this.label2.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace ArEx_DataBase
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 121);
+            this.label3.Location = new System.Drawing.Point(54, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 16);
             this.label3.TabIndex = 6;
@@ -116,7 +116,7 @@ namespace ArEx_DataBase
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(140, 152);
+            this.label4.Location = new System.Drawing.Point(135, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 16);
             this.label4.TabIndex = 7;
@@ -125,7 +125,7 @@ namespace ArEx_DataBase
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(46, 183);
+            this.label5.Location = new System.Drawing.Point(41, 211);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 16);
             this.label5.TabIndex = 8;
@@ -136,7 +136,7 @@ namespace ArEx_DataBase
             this.button1.BackColor = System.Drawing.Color.LightBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(256, 229);
+            this.button1.Location = new System.Drawing.Point(288, 236);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 34);
             this.button1.TabIndex = 9;
@@ -147,7 +147,7 @@ namespace ArEx_DataBase
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 211);
+            this.label6.Location = new System.Drawing.Point(33, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(152, 16);
             this.label6.TabIndex = 11;
@@ -155,7 +155,7 @@ namespace ArEx_DataBase
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(191, 205);
+            this.textBox5.Location = new System.Drawing.Point(222, 180);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(231, 22);
             this.textBox5.TabIndex = 10;
@@ -164,7 +164,7 @@ namespace ArEx_DataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 275);
+            this.ClientSize = new System.Drawing.Size(478, 275);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button1);

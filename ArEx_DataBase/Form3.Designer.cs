@@ -41,6 +41,10 @@ namespace ArEx_DataBase
             this.button8 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -61,6 +65,8 @@ namespace ArEx_DataBase
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -90,6 +96,10 @@ namespace ArEx_DataBase
             this.button_newrecord = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -111,6 +121,8 @@ namespace ArEx_DataBase
             this.button12 = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
@@ -122,6 +134,7 @@ namespace ArEx_DataBase
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label36 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.exp = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -158,7 +171,7 @@ namespace ArEx_DataBase
             this.управлениеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(759, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(760, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,7 +189,7 @@ namespace ArEx_DataBase
             this.toolStripTextBox1});
             this.toolStrip1.Location = new System.Drawing.Point(600, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(115, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(115, 27);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -195,7 +208,7 @@ namespace ArEx_DataBase
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(751, 569);
+            this.tabPage3.Size = new System.Drawing.Size(751, 683);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Рецептура шихты";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -224,6 +237,7 @@ namespace ArEx_DataBase
             this.button5.TabIndex = 4;
             this.button5.Text = "Сохранить";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -236,6 +250,7 @@ namespace ArEx_DataBase
             this.button6.TabIndex = 3;
             this.button6.Text = "Изменить";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -248,6 +263,7 @@ namespace ArEx_DataBase
             this.button7.TabIndex = 2;
             this.button7.Text = "Удалить";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -260,6 +276,7 @@ namespace ArEx_DataBase
             this.button8.TabIndex = 1;
             this.button8.Text = "Новая запись";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label18
             // 
@@ -273,6 +290,10 @@ namespace ArEx_DataBase
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.label29);
+            this.panel8.Controls.Add(this.textBox15);
+            this.panel8.Controls.Add(this.label23);
+            this.panel8.Controls.Add(this.textBox10);
             this.panel8.Controls.Add(this.label20);
             this.panel8.Controls.Add(this.label24);
             this.panel8.Controls.Add(this.label25);
@@ -285,10 +306,44 @@ namespace ArEx_DataBase
             this.panel8.Size = new System.Drawing.Size(352, 234);
             this.panel8.TabIndex = 8;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(4, 74);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(183, 16);
+            this.label29.TabIndex = 13;
+            this.label29.Text = "№ Материала в рецептуре";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(202, 71);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(125, 24);
+            this.textBox15.TabIndex = 12;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 104);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(158, 16);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "№ Складского объекта";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(202, 101);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(125, 24);
+            this.textBox10.TabIndex = 10;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(111, 118);
+            this.label20.Location = new System.Drawing.Point(86, 194);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(101, 16);
             this.label20.TabIndex = 11;
@@ -297,7 +352,7 @@ namespace ArEx_DataBase
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(58, 88);
+            this.label24.Location = new System.Drawing.Point(33, 164);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(154, 16);
             this.label24.TabIndex = 10;
@@ -306,7 +361,7 @@ namespace ArEx_DataBase
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(29, 58);
+            this.label25.Location = new System.Drawing.Point(4, 135);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(183, 16);
             this.label25.TabIndex = 9;
@@ -314,7 +369,7 @@ namespace ArEx_DataBase
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(214, 115);
+            this.textBox11.Location = new System.Drawing.Point(202, 191);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(125, 24);
@@ -322,7 +377,7 @@ namespace ArEx_DataBase
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(214, 85);
+            this.textBox12.Location = new System.Drawing.Point(202, 161);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(125, 24);
@@ -330,7 +385,7 @@ namespace ArEx_DataBase
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(214, 55);
+            this.textBox13.Location = new System.Drawing.Point(202, 131);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(125, 24);
@@ -359,6 +414,7 @@ namespace ArEx_DataBase
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(745, 252);
             this.dataGridView3.TabIndex = 7;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // panel9
             // 
@@ -379,6 +435,7 @@ namespace ArEx_DataBase
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(135, 28);
             this.textBox14.TabIndex = 3;
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
             // 
             // pictureBox2
             // 
@@ -389,6 +446,7 @@ namespace ArEx_DataBase
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label27
             // 
@@ -410,7 +468,7 @@ namespace ArEx_DataBase
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(751, 569);
+            this.tabPage2.Size = new System.Drawing.Size(751, 683);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Хранилище";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -491,6 +549,8 @@ namespace ArEx_DataBase
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.textBox9);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label15);
@@ -507,10 +567,27 @@ namespace ArEx_DataBase
             this.panel5.Size = new System.Drawing.Size(352, 234);
             this.panel5.TabIndex = 4;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(30, 50);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(161, 16);
+            this.label22.TabIndex = 16;
+            this.label22.Text = "№ Складского объекта ";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(224, 42);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(125, 24);
+            this.textBox9.TabIndex = 15;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(148, 123);
+            this.label12.Location = new System.Drawing.Point(158, 112);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 16);
             this.label12.TabIndex = 11;
@@ -519,7 +596,7 @@ namespace ArEx_DataBase
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(38, 179);
+            this.label13.Location = new System.Drawing.Point(48, 165);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(152, 16);
             this.label13.TabIndex = 14;
@@ -528,7 +605,7 @@ namespace ArEx_DataBase
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(53, 150);
+            this.label15.Location = new System.Drawing.Point(63, 196);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(136, 16);
             this.label15.TabIndex = 12;
@@ -537,7 +614,7 @@ namespace ArEx_DataBase
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(138, 95);
+            this.label16.Location = new System.Drawing.Point(148, 84);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 16);
             this.label16.TabIndex = 10;
@@ -546,7 +623,7 @@ namespace ArEx_DataBase
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 63);
+            this.label17.Location = new System.Drawing.Point(13, 139);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(187, 16);
             this.label17.TabIndex = 9;
@@ -555,7 +632,7 @@ namespace ArEx_DataBase
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(214, 172);
+            this.textBox3.Location = new System.Drawing.Point(224, 158);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(125, 24);
@@ -563,7 +640,7 @@ namespace ArEx_DataBase
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(214, 142);
+            this.textBox4.Location = new System.Drawing.Point(224, 188);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(125, 24);
@@ -571,7 +648,7 @@ namespace ArEx_DataBase
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(214, 115);
+            this.textBox5.Location = new System.Drawing.Point(224, 104);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(125, 24);
@@ -579,7 +656,7 @@ namespace ArEx_DataBase
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(214, 85);
+            this.textBox6.Location = new System.Drawing.Point(224, 74);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(125, 24);
@@ -587,7 +664,7 @@ namespace ArEx_DataBase
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(214, 55);
+            this.textBox7.Location = new System.Drawing.Point(224, 131);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(125, 24);
@@ -616,6 +693,8 @@ namespace ArEx_DataBase
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(745, 252);
             this.dataGridView2.TabIndex = 3;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel4
             // 
@@ -636,6 +715,7 @@ namespace ArEx_DataBase
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 28);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -646,6 +726,7 @@ namespace ArEx_DataBase
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label11
             // 
@@ -667,7 +748,7 @@ namespace ArEx_DataBase
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(751, 569);
+            this.tabPage1.Size = new System.Drawing.Size(751, 683);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Приход сырьевых материалов";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -739,7 +820,7 @@ namespace ArEx_DataBase
             this.panel3.Controls.Add(this.label10);
             this.panel3.Location = new System.Drawing.Point(531, 327);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 234);
+            this.panel3.Size = new System.Drawing.Size(217, 311);
             this.panel3.TabIndex = 4;
             // 
             // button_save
@@ -806,6 +887,10 @@ namespace ArEx_DataBase
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
@@ -821,13 +906,47 @@ namespace ArEx_DataBase
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(4, 327);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(352, 234);
+            this.panel2.Size = new System.Drawing.Size(352, 311);
             this.panel2.TabIndex = 3;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(20, 65);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 16);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "№Поставки";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(209, 62);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(125, 24);
+            this.textBox8.TabIndex = 17;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 95);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(155, 16);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "№Складского объекта";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(209, 92);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(125, 24);
+            this.textBox2.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 118);
+            this.label6.Location = new System.Drawing.Point(125, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 11;
@@ -837,7 +956,7 @@ namespace ArEx_DataBase
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(98, 209);
+            this.label9.Location = new System.Drawing.Point(93, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 16);
             this.label9.TabIndex = 14;
@@ -846,7 +965,7 @@ namespace ArEx_DataBase
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(126, 174);
+            this.label8.Location = new System.Drawing.Point(121, 241);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 16);
             this.label8.TabIndex = 13;
@@ -856,7 +975,7 @@ namespace ArEx_DataBase
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 145);
+            this.label7.Location = new System.Drawing.Point(20, 212);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(174, 16);
             this.label7.TabIndex = 12;
@@ -865,7 +984,7 @@ namespace ArEx_DataBase
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 88);
+            this.label5.Location = new System.Drawing.Point(102, 155);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 16);
             this.label5.TabIndex = 10;
@@ -874,7 +993,7 @@ namespace ArEx_DataBase
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 58);
+            this.label4.Location = new System.Drawing.Point(20, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 16);
             this.label4.TabIndex = 9;
@@ -883,7 +1002,7 @@ namespace ArEx_DataBase
             // 
             // textBox_prov
             // 
-            this.textBox_prov.Location = new System.Drawing.Point(214, 171);
+            this.textBox_prov.Location = new System.Drawing.Point(209, 238);
             this.textBox_prov.Multiline = true;
             this.textBox_prov.Name = "textBox_prov";
             this.textBox_prov.Size = new System.Drawing.Size(125, 24);
@@ -891,7 +1010,7 @@ namespace ArEx_DataBase
             // 
             // textBox_tonnage
             // 
-            this.textBox_tonnage.Location = new System.Drawing.Point(214, 201);
+            this.textBox_tonnage.Location = new System.Drawing.Point(209, 268);
             this.textBox_tonnage.Multiline = true;
             this.textBox_tonnage.Name = "textBox_tonnage";
             this.textBox_tonnage.Size = new System.Drawing.Size(125, 24);
@@ -899,7 +1018,7 @@ namespace ArEx_DataBase
             // 
             // textBox_transcons
             // 
-            this.textBox_transcons.Location = new System.Drawing.Point(214, 142);
+            this.textBox_transcons.Location = new System.Drawing.Point(209, 209);
             this.textBox_transcons.Multiline = true;
             this.textBox_transcons.Name = "textBox_transcons";
             this.textBox_transcons.Size = new System.Drawing.Size(125, 24);
@@ -907,7 +1026,7 @@ namespace ArEx_DataBase
             // 
             // textBox_numberv
             // 
-            this.textBox_numberv.Location = new System.Drawing.Point(214, 115);
+            this.textBox_numberv.Location = new System.Drawing.Point(209, 182);
             this.textBox_numberv.Multiline = true;
             this.textBox_numberv.Name = "textBox_numberv";
             this.textBox_numberv.Size = new System.Drawing.Size(125, 24);
@@ -915,7 +1034,7 @@ namespace ArEx_DataBase
             // 
             // textBox_date
             // 
-            this.textBox_date.Location = new System.Drawing.Point(214, 85);
+            this.textBox_date.Location = new System.Drawing.Point(209, 152);
             this.textBox_date.Multiline = true;
             this.textBox_date.Name = "textBox_date";
             this.textBox_date.Size = new System.Drawing.Size(125, 24);
@@ -923,7 +1042,7 @@ namespace ArEx_DataBase
             // 
             // textBox_namemat
             // 
-            this.textBox_namemat.Location = new System.Drawing.Point(214, 55);
+            this.textBox_namemat.Location = new System.Drawing.Point(209, 122);
             this.textBox_namemat.Multiline = true;
             this.textBox_namemat.Name = "textBox_namemat";
             this.textBox_namemat.Size = new System.Drawing.Size(125, 24);
@@ -941,6 +1060,7 @@ namespace ArEx_DataBase
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.exp);
             this.tabPage4.Controls.Add(this.panel10);
             this.tabPage4.Controls.Add(this.panel11);
             this.tabPage4.Controls.Add(this.dataGridView4);
@@ -948,7 +1068,7 @@ namespace ArEx_DataBase
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(751, 569);
+            this.tabPage4.Size = new System.Drawing.Size(751, 683);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Расход сырья";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -976,6 +1096,7 @@ namespace ArEx_DataBase
             this.button9.TabIndex = 4;
             this.button9.Text = "Сохранить";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -988,6 +1109,7 @@ namespace ArEx_DataBase
             this.button10.TabIndex = 3;
             this.button10.Text = "Изменить";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -1000,6 +1122,7 @@ namespace ArEx_DataBase
             this.button11.TabIndex = 2;
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -1012,6 +1135,7 @@ namespace ArEx_DataBase
             this.button12.TabIndex = 1;
             this.button12.Text = "Новая запись";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label28
             // 
@@ -1025,6 +1149,8 @@ namespace ArEx_DataBase
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.label30);
+            this.panel11.Controls.Add(this.textBox16);
             this.panel11.Controls.Add(this.label33);
             this.panel11.Controls.Add(this.label34);
             this.panel11.Controls.Add(this.textBox19);
@@ -1035,10 +1161,27 @@ namespace ArEx_DataBase
             this.panel11.Size = new System.Drawing.Size(352, 234);
             this.panel11.TabIndex = 12;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(3, 57);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(158, 32);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "№Производственного \r\nпроцесса (Расход)";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(196, 65);
+            this.textBox16.Multiline = true;
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(125, 24);
+            this.textBox16.TabIndex = 11;
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(34, 81);
+            this.label33.Location = new System.Drawing.Point(3, 135);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(112, 16);
             this.label33.TabIndex = 10;
@@ -1047,7 +1190,7 @@ namespace ArEx_DataBase
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(34, 46);
+            this.label34.Location = new System.Drawing.Point(3, 100);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(115, 16);
             this.label34.TabIndex = 9;
@@ -1055,7 +1198,7 @@ namespace ArEx_DataBase
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(157, 78);
+            this.textBox19.Location = new System.Drawing.Point(196, 136);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(125, 24);
@@ -1063,7 +1206,7 @@ namespace ArEx_DataBase
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(157, 43);
+            this.textBox20.Location = new System.Drawing.Point(196, 101);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(125, 24);
@@ -1092,6 +1235,7 @@ namespace ArEx_DataBase
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(745, 252);
             this.dataGridView4.TabIndex = 11;
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
             // panel12
             // 
@@ -1112,6 +1256,7 @@ namespace ArEx_DataBase
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(135, 28);
             this.textBox21.TabIndex = 3;
+            this.textBox21.TextChanged += new System.EventHandler(this.textBox21_TextChanged);
             // 
             // pictureBox3
             // 
@@ -1122,6 +1267,7 @@ namespace ArEx_DataBase
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label36
             // 
@@ -1143,15 +1289,28 @@ namespace ArEx_DataBase
             this.tabControl1.Location = new System.Drawing.Point(0, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(759, 598);
+            this.tabControl1.Size = new System.Drawing.Size(759, 712);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // exp
+            // 
+            this.exp.BackColor = System.Drawing.Color.LightBlue;
+            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.exp.Location = new System.Drawing.Point(377, 519);
+            this.exp.Name = "exp";
+            this.exp.Size = new System.Drawing.Size(139, 44);
+            this.exp.TabIndex = 14;
+            this.exp.Text = "Печать";
+            this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(759, 636);
+            this.ClientSize = new System.Drawing.Size(760, 727);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
@@ -1300,5 +1459,18 @@ namespace ArEx_DataBase
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Button exp;
     }
 }

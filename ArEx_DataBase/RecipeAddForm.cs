@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ArEx_DataBase
 {
@@ -28,19 +29,32 @@ namespace ArEx_DataBase
         {
             dataBase.openConnection();
 
-            var namemat = textBox1.Text;
-            var quantity = textBox2.Text;
-            var humidity = textBox3.Text;
+            decimal loss;
+            float quantity;
+            decimal humidity;
 
+            if (decimal.TryParse(textBox1.Text, out loss))
+            {
+                if (float.TryParse(textBox2.Text, out quantity))
+                {
+                    if (decimal.TryParse(textBox3.Text, out humidity))
+                    {
+                        var addQuery = $"insert into Recipe (Re_loss, Re_quantity_material_per_batch, Re_humidity) values ('{loss}','{quantity}','{humidity})";
+
+                        var command = new SqlCommand(addQuery, dataBase.getConnection());
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Потери и влажность записываются в процентах!Количество на один замес в числовом формате!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
            
-                var addQuery = $"insert into Recipe (Re_name_material, Re_quantity_material_per_batch, Re_humidity) values ('{namemat}','{quantity}','{humidity}')";
+            dataBase.closeConnection();
 
-                var command = new SqlCommand(addQuery, dataBase.getConnection());
-                command.ExecuteNonQuery();
-
-                MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-         
         }
     }
 }

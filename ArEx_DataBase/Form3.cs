@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+//using Application = Microsoft.Office.Interop.Excel.Application;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 
 namespace ArEx_DataBase
 {
@@ -37,6 +40,21 @@ namespace ArEx_DataBase
         {
             управлениеToolStripMenuItem.Enabled = _user.IsAdmin;
             button_newrecord.Enabled = _user.IsAdmin;
+            button_delete.Enabled = _user.IsAdmin;
+            button_change.Enabled = _user.IsAdmin;
+            button_save.Enabled = _user.IsAdmin;
+            button4.Enabled = _user.IsAdmin;
+            button3.Enabled = _user.IsAdmin;
+            button2.Enabled = _user.IsAdmin;
+            button1.Enabled = _user.IsAdmin;
+            button8.Enabled = _user.IsAdmin;
+            button7.Enabled = _user.IsAdmin;
+            button6.Enabled = _user.IsAdmin;
+            button5.Enabled = _user.IsAdmin;
+            button12.Enabled = _user.IsAdmin;
+            button11.Enabled = _user.IsAdmin;
+            button10.Enabled = _user.IsAdmin;
+            button9.Enabled = _user.IsAdmin;
         }
 
         private void CreateColumns()
@@ -51,11 +69,12 @@ namespace ArEx_DataBase
             dataGridView1.Columns.Add("Ar_tonnage", "Тоннаж");
             dataGridView1.Columns.Add("IsNew", String.Empty);
         }
-
+            
+      
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetFloat(7), RowState.ModifiedNew);
+            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetInt32(7), RowState.ModifiedNew);
         }
 
         private void RefreshDataGrid(DataGridView dgw)
@@ -76,22 +95,20 @@ namespace ArEx_DataBase
             }
             reader.Close();
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void Form3_Load(object sender, EventArgs e)
         {
             toolStripTextBox1.Text = $"{_user.Login}: {_user.Status}";
             IsAdmin();
             CreateColumns();
             RefreshDataGrid(dataGridView1);
+            CreateColumnsStock();
+            RefreshDataGridStock(dataGridView2);
+            CreateColumnsRecipe();
+            RefreshDataGridRecipe(dataGridView3);
+            CreateColumnsExpense();
+            RefreshDataGridExpense(dataGridView4);
+
 
         }
 
@@ -103,7 +120,8 @@ namespace ArEx_DataBase
             {
                 DataGridViewRow row = dataGridView1.Rows[selectedRow];
 
-               
+                textBox8.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
                 textBox_namemat.Text = row.Cells[2].Value.ToString();
                 textBox_date.Text = row.Cells[3].Value.ToString();
                 textBox_numberv.Text = row.Cells[4].Value.ToString();
@@ -111,11 +129,6 @@ namespace ArEx_DataBase
                 textBox_prov.Text = row.Cells[6].Value.ToString();
                 textBox_tonnage.Text = row.Cells[7].Value.ToString();
             }
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox_refresh_Click(object sender, EventArgs e)
@@ -127,11 +140,6 @@ namespace ArEx_DataBase
         {
             Form4 frm4 = new Form4();
             frm4.Show();
-        }
-
-        private void pictureBox_search_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Search(DataGridView dgw)
@@ -188,6 +196,7 @@ namespace ArEx_DataBase
                     command.ExecuteNonQuery();
 
 
+                    
                 }
                 if (rowState == RowState.Modified)
                 {
@@ -200,7 +209,7 @@ namespace ArEx_DataBase
                     var prov = dataGridView1.Rows[index].Cells[6].Value.ToString();
                     var tonnage = dataGridView1.Rows[index].Cells[7].Value.ToString();
 
-                    var changeQuery = $"update Arrival set Stock_ID = '{idStock}, 'Ar_material_supplies = '{namemat}', Ar_date = '{date}', Ar_number_vehicle ='{numberv}', Ar_number_consignment ='{transcons}',Ar_name_provider ='{prov}',Ar_tonnage ='{tonnage}' where Arrival_ID = '{idArrival}'";
+                    var changeQuery = $"update Arrival set Stock_ID = '{idStock}', Ar_material_supplies = '{namemat}', Ar_date = '{date}', Ar_number_vehicle ='{numberv}', Ar_number_consignment ='{transcons}',Ar_name_provider ='{prov}',Ar_tonnage ='{tonnage}' where Arrival_ID = '{idArrival}'";
 
                     var command = new SqlCommand(changeQuery, dataBase.getConnection());
                     command.ExecuteNonQuery();
@@ -227,7 +236,8 @@ namespace ArEx_DataBase
         {
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
-            
+            var idArrival = textBox8.Text;
+            var idStock = textBox2.Text;
             var namemat = textBox_namemat.Text;
             var date = textBox_date.Text;
             var numberv = textBox_numberv.Text;
@@ -239,7 +249,7 @@ namespace ArEx_DataBase
             {
                 if (int.TryParse(textBox_tonnage.Text, out tonnage))
                 {
-                    dataGridView1.Rows[selectedRowIndex].SetValues(namemat, date, numberv, transcons, prov, tonnage);
+                    dataGridView1.Rows[selectedRowIndex].SetValues(idArrival, idStock, namemat, date, numberv, transcons, prov, tonnage);
                     dataGridView1.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
                 }
                 else
@@ -253,6 +263,564 @@ namespace ArEx_DataBase
             Change();
         }
 
+
+
+
+
+/*******************************************************************************************************************************************/
+/*******************************************************************************************************************************************************/
+/*********************************************************************************************************************************************************/
+
+
+        private void CreateColumnsStock()
+        {
+            dataGridView2.Columns.Add("Stock_ID", "№Cкладского объекта");
+            dataGridView2.Columns.Add("St_brand_material", "Марка материала");
+            dataGridView2.Columns.Add("St_GOST", "ГОСТ материала");
+            dataGridView2.Columns.Add("St_remains", "Запас материала");
+            dataGridView2.Columns.Add("St_total_tonnage", "Общий тоннаж");
+            dataGridView2.Columns.Add("St_ware_fac", "Вид складского объекта");
+            dataGridView2.Columns.Add("IsNew", String.Empty);
+        }
+
+        private void ReadSingleRowStock(DataGridView dgw, IDataRecord record)
+        {
+            dgw.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetInt32(3), record.GetInt32(4), record.GetString(5), RowState.ModifiedNew);
+        }
+
+        private void RefreshDataGridStock(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string queryString = $"select * from Stock";
+
+            SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ReadSingleRowStock(dgw, reader);
+            }
+            reader.Close();
+        }
+
+        private void SearchStock(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string searchString = $"select * from Stock where concat (Stock_ID, St_brand_material,St_GOST, St_remains, St_total_tonnage, St_ware_fac) like '%" + textBox1.Text + "%'";
+
+            SqlCommand com = new SqlCommand(searchString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader read = com.ExecuteReader();
+
+            while (read.Read())
+            {
+                ReadSingleRowStock(dgw, read);
+            }
+
+            read.Close();
+        }
+        private void deleteRowStock()
+        {
+            int index = dataGridView2.CurrentCell.RowIndex;
+
+            dataGridView2.Rows[index].Visible = false;
+
+            if (dataGridView2.Rows[index].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView2.Rows[index].Cells[6].Value = RowState.Deleted;
+                return;
+            }
+
+        }
+
+        private void UpdateStock()
+        {
+            dataBase.openConnection();
+
+            for (int index = 0; index < dataGridView2.Rows.Count; index++)
+            {
+                var rowState = (RowState)dataGridView2.Rows[index].Cells[6].Value;
+
+                if (rowState == RowState.Existed)
+                    continue;
+
+                if (rowState == RowState.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"delete from Stock where Stock_ID = {id}";
+
+                    var command = new SqlCommand(deleteQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+
+
+                }
+                if (rowState == RowState.Modified)
+                {
+                    var id = dataGridView2.Rows[index].Cells[0].Value.ToString();
+                    var brand = dataGridView2.Rows[index].Cells[1].Value.ToString();
+                    var gost = dataGridView2.Rows[index].Cells[2].Value.ToString();
+                    var reserve = dataGridView2.Rows[index].Cells[3].Value.ToString();
+                    var total = dataGridView2.Rows[index].Cells[4].Value.ToString();
+                    var ware = dataGridView2.Rows[index].Cells[5].Value.ToString();
+
+                    var changeQuery = $"update Stock set St_brand_material = '{brand}', St_GOST ='{gost}', St_remains ='{reserve}', St_total_tonnage ='{total}', St_ware_fac ='{ware}' where Stock_ID = '{id}'";
+
+                    var command = new SqlCommand(changeQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            dataBase.closeConnection();
+        }
+
+        private void ChangeStock()
+        {
+            var selectedRowIndex = dataGridView2.CurrentCell.RowIndex;
+
+            var idStock = textBox9.Text;
+            var brand = textBox6.Text;
+            var gost = textBox5.Text;
+            int reserve;
+            int total;
+            var ware = textBox4.Text;
+
+            if (dataGridView2.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
+            {
+                if (int.TryParse(textBox7.Text, out reserve))
+                {
+                    if (int.TryParse(textBox3.Text, out total))
+                    dataGridView2.Rows[selectedRowIndex].SetValues(idStock, brand, gost, reserve, total, ware);
+                    dataGridView2.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Запас материала или общий тоннаж должен иметь числовой формат!");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            deleteRowStock();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+                StockAddForm addfrm = new StockAddForm();
+            addfrm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ChangeStock();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            UpdateStock();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView2.Rows[selectedRow];
+
+                textBox9.Text = row.Cells[0].Value.ToString();
+                textBox6.Text = row.Cells[1].Value.ToString();
+                textBox5.Text = row.Cells[2].Value.ToString();
+                textBox7.Text = row.Cells[3].Value.ToString();
+                textBox3.Text = row.Cells[4].Value.ToString();
+                textBox4.Text = row.Cells[5].Value.ToString();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridStock(dataGridView2);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            SearchStock(dataGridView2);
+        }
+
+
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+        private void CreateColumnsRecipe()
+        {
+            dataGridView3.Columns.Add("Recipe_ID", "№ рецепта");
+            dataGridView3.Columns.Add("Stock_ID", "№ складского объекта");
+            dataGridView3.Columns.Add("Re_loss", "Потери (%)");
+            dataGridView3.Columns.Add("Re_quantity_material_per_batch", "Количество на один замес (т)");
+            dataGridView3.Columns.Add("Re_humidity", "Влажность (%)");
+            dataGridView3.Columns.Add("IsNew", String.Empty);
+        }
+
+        private void ReadSingleRowRecipe(DataGridView dgw, IDataRecord record)
+        {
+            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetInt32(2), record.GetInt32(3), record.GetInt32(4), RowState.ModifiedNew);
+        }
+
+        private void RefreshDataGridRecipe(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string queryString = $"select * from Recipe";
+
+            SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ReadSingleRowRecipe(dgw, reader);
+            }
+            reader.Close();
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView3.Rows[selectedRow];
+
+                textBox15.Text = row.Cells[0].Value.ToString(); 
+                textBox10.Text = row.Cells[1].Value.ToString();
+                textBox13.Text = row.Cells[2].Value.ToString();
+                textBox12.Text = row.Cells[3].Value.ToString();
+                textBox11.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
+        private void SearchRecipe(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string searchString = $"select * from Recipe where concat (Recipe_ID,Stock_ID, Re_loss, Re_quantity_material_per_batch, Re_humidity) like '%" + textBox14.Text + "%'";
+
+            SqlCommand com = new SqlCommand(searchString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader read = com.ExecuteReader();
+
+            while (read.Read())
+            {
+                ReadSingleRowRecipe(dgw, read);
+            }
+
+            read.Close();
+        }
+
+        private void deleteRowRecipe()
+        {
+            int index = dataGridView3.CurrentCell.RowIndex;
+
+            dataGridView3.Rows[index].Visible = false;
+
+            if (dataGridView3.Rows[index].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView3.Rows[index].Cells[5].Value = RowState.Deleted;
+                return;
+            }
+
+        }
+
+        private void UpdateRecipe()
+        {
+            dataBase.openConnection();
+
+            for (int index = 0; index < dataGridView3.Rows.Count; index++)
+            {
+                var rowState = (RowState)dataGridView3.Rows[index].Cells[5].Value;
+
+                if (rowState == RowState.Existed)
+                    continue;
+
+                if (rowState == RowState.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView3.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"delete from Recipe where Recipe_ID = {id}";
+
+                    var command = new SqlCommand(deleteQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+
+
+                }
+                if (rowState == RowState.Modified)
+                {
+                    var idRecipe = dataGridView3.Rows[index].Cells[0].Value.ToString();
+                    var idStock = dataGridView3.Rows[index].Cells[1].Value.ToString();
+                    var loss = dataGridView3.Rows[index].Cells[2].Value.ToString();
+                    var quantity = dataGridView3.Rows[index].Cells[3].Value.ToString();
+                    var humidity = dataGridView3.Rows[index].Cells[4].Value.ToString();
+
+                    var changeQuery = $"update Recipe set Stock_ID = {idStock}, Re_loss = '{loss}', Re_quantity_material_per_batch = '{quantity}', Re_humidity ='{humidity}' where Recipe_ID = '{idRecipe}'";
+
+                    var command = new SqlCommand(changeQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            dataBase.closeConnection();
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            SearchRecipe(dataGridView3);
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            deleteRowRecipe();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UpdateRecipe();
+        }
+
+        private void ChangeRecipe()
+        {
+            var selectedRowIndex = dataGridView3.CurrentCell.RowIndex;
+
+            var idStock = textBox10.Text;
+            var idRecipe = textBox15.Text;
+            int loss;
+            int quantity;
+            int humidity;
+
+            if (dataGridView3.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
+            {
+                if (int.TryParse(textBox13.Text, out loss))
+                {
+                    if (int.TryParse(textBox12.Text, out quantity))
+                    {
+                        if (int.TryParse(textBox11.Text, out humidity))
+                        dataGridView3.Rows[selectedRowIndex].SetValues(idRecipe, idStock, loss, quantity, humidity);
+                        dataGridView3.Rows[selectedRowIndex].Cells[5].Value = RowState.Modified;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Все данные в этой таблице имеют числовой формат (Потери и влажность - проценты!");
+            }
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ChangeRecipe();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridRecipe(dataGridView3);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            RecipeAddForm addfrm = new RecipeAddForm();
+            addfrm.Show();
+        }
+
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+
+
+        private void CreateColumnsExpense()
+        {
+            dataGridView4.Columns.Add("Expense_ID", "№Производственного процесса(Расход)");
+            dataGridView4.Columns.Add("Ex_per_shift", "Расход за смену");
+            dataGridView4.Columns.Add("Ex_per_day", "Расход за сутки");
+            dataGridView4.Columns.Add("IsNew", String.Empty);
+        }
+
+        private void ReadSingleRowExpense(DataGridView dgw, IDataRecord record)
+        {
+            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetInt32(2), RowState.ModifiedNew);
+        }
+
+        private void RefreshDataGridExpense(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string queryString = $"select * from Expense";
+
+            SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ReadSingleRowExpense(dgw, reader);
+            }
+            reader.Close();
+        }
+
+       private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView4.Rows[selectedRow];
+
+                textBox16.Text = row.Cells[0].Value.ToString();    
+                textBox20.Text = row.Cells[1].Value.ToString();
+                textBox19.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+        private void SearchExpense(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string searchString = $"select * from Expense where concat (Expense_ID,Ex_per_shift,Ex_per_day) like '%" + textBox21.Text + "%'";
+
+            SqlCommand com = new SqlCommand(searchString, dataBase.getConnection());
+
+            dataBase.openConnection();
+
+            SqlDataReader read = com.ExecuteReader();
+
+            while (read.Read())
+            {
+                ReadSingleRowExpense(dgw, read);
+            }
+
+            read.Close();
+        }
+
+        private void deleteRowExpense()
+        {
+            int index = dataGridView4.CurrentCell.RowIndex;
+
+            dataGridView4.Rows[index].Visible = false;
+
+            if (dataGridView4.Rows[index].Cells[0].Value.ToString() == string.Empty)
+            {
+                dataGridView4.Rows[index].Cells[4].Value = RowState.Deleted;
+                return;
+            }
+
+        }
+
+        private void UpdateExpense()
+        {
+            dataBase.openConnection();
+
+            for (int index = 0; index < dataGridView4.Rows.Count; index++)
+            {
+                var rowState = (RowState)dataGridView4.Rows[index].Cells[3].Value;
+
+                if (rowState == RowState.Existed)
+                    continue;
+
+                if (rowState == RowState.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView4.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"delete from Expense where Expense = {id}";
+
+                    var command = new SqlCommand(deleteQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+
+
+                }
+                if (rowState == RowState.Modified)
+                {
+                    var idExpense = dataGridView4.Rows[index].Cells[0].Value.ToString();
+                    var shift = dataGridView4.Rows[index].Cells[1].Value.ToString();
+                    var day = dataGridView4.Rows[index].Cells[2].Value.ToString();
+                    
+
+                    var changeQuery = $"update Expense set Ex_per_shift = '{shift}', Ex_per_day = '{day}' where Expense_ID = '{idExpense}'";
+
+                    var command = new SqlCommand(changeQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            dataBase.closeConnection();
+        }
+
+        private void ChangeExpense()
+        {
+            var selectedRowIndex = dataGridView4.CurrentCell.RowIndex;
+
+
+            var idExpense = textBox16.Text;
+            int shift;
+            int day;
+
+            if (dataGridView4.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
+            {
+                if (int.TryParse(textBox20.Text, out shift))
+                {
+                    if (int.TryParse(textBox19.Text, out day))
+                    {
+                        dataGridView4.Rows[selectedRowIndex].SetValues(idExpense, shift,day);
+                        dataGridView4.Rows[selectedRowIndex].Cells[3].Value = RowState.Modified;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Данные должны быть в числовом формате!");
+            }
+        }
+        private void textBox21_TextChanged(object sender, EventArgs e)
+        {
+            SearchExpense(dataGridView4);
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            deleteRowExpense();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            UpdateExpense();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ChangeExpense();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridExpense(dataGridView4);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            ExpenseAddForm addfrm = new ExpenseAddForm();
+            addfrm.Show();
+        }
+       
+
+
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+        /*************************************************************************************************************************************************************/
+
+
+
+
         private void pictureBox_clear_Click(object sender, EventArgs e)
         {
 
@@ -260,7 +828,7 @@ namespace ArEx_DataBase
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
@@ -278,24 +846,41 @@ namespace ArEx_DataBase
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void pictureBox_search_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void exp_Click(object sender, EventArgs e)
+        {
+           /* Excel.Application exApp = new Excel.Application();
+
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+            int i, j;
+            for (i = 0; i <= dataGridView4.RowCount - 2; i++)
+            {
+                for (j = 0; j <= dataGridView4.ColumnCount - 1; j++)
+                {
+                    wsh.Cells[i + 1, j + 1] = dataGridView4[j, i].Value.ToString();
+                }
+            }
+            exApp.Visible = true;*/
         }
     }
 }

@@ -61,7 +61,6 @@ C:\Users\Acer\Source\Repos\nevduplenish\diplomDatabase-\ArEx_DataBase\obj\Debug\
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.csproj.AssemblyReference.cache
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.ExpenseAddForm.resources
-C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.ExpenseForm.resources
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.Form1.resources
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.Form2.resources
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.Form3.resources
@@ -88,3 +87,6 @@ C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\bin\Debug\net4.8-windows\ArE
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.noNeed.RecipeForm.resources
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.noNeed.RecipeExpenseForm.resources
 C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.noNeed.StockForm.resources
+C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.noNeed.ExpenseForm.resources
+C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\bin\Debug\net4.8-windows\Microsoft.Office.Interop.Excel.dll
+C:\Users\Acer\Desktop\diplomDatabase-\ArEx_DataBase\obj\Debug\net4.8-windows\ArEx_DataBase.csproj.CopyComplete

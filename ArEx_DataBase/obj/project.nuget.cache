@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7rJIK7a7XfMsrTD3Sllat0E8bkbgeYkIYvY+UR5X899wwMoDQecaSPnUkBxmEJCX2pspl3kM/osXjOIEYidfaQ==",
+  "dgSpecHash": "uOTL+LR/vmejaD95iAmTCfo3LDqHWwdepOrHL6dFVvK495pTNFmBaxMoU23WcjJAHmaAoTDLRmxier5hXRXcFQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Desktop\\diplomDatabase-\\ArEx_DataBase\\ArEx_DataBase.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1001\\microsoft.office.interop.excel.15.0.4795.1001.nupkg.sha512"
+  ],
   "logs": []
 }

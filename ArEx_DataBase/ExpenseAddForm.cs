@@ -29,22 +29,24 @@ namespace ArEx_DataBase
         {
             dataBase.openConnection();
 
-            var namemat = textBox1.Text;
-            var perday = textBox2.Text;
-            int remains;
-
-            if (int.TryParse(textBox2.Text, out remains))   
+            float shift;
+            float day;
+       
+            if (float.TryParse(textBox1.Text, out shift))   
             {
-                var addQuery = $"insert into Expense (Ex_name_material, Ex_per_day, Ex_remains) values ('{namemat}','{perday}','{remains}')";
+                if (float.TryParse(textBox2.Text, out day))
+                {
+                    var addQuery = $"insert into Expense (Ex_per_shift, Ex_per_day) values ('{shift}','{day}')";
 
-                var command = new SqlCommand(addQuery, dataBase.getConnection());
-                command.ExecuteNonQuery();
+                    var command = new SqlCommand(addQuery, dataBase.getConnection());
+                    command.ExecuteNonQuery();
 
-                MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Запись создана!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Остаток должен иметь целочисленный формат!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Расход должен иметь числовой формат!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             dataBase.closeConnection();
         }
