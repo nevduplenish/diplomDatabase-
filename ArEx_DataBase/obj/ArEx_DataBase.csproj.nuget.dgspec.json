@@ -40,9 +40,9 @@
         "net48": {
           "targetAlias": "net4.8-windows",
           "dependencies": {
-            "Microsoft.Office.Interop.Excel": {
+            "NPOI": {
               "target": "Package",
-              "version": "[15.0.4795.1001, )"
+              "version": "[2.6.0, )"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"

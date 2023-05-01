@@ -114,6 +114,7 @@ namespace ArEx_DataBase
             this.textBox_namemat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.exp = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -134,7 +135,6 @@ namespace ArEx_DataBase
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label36 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.exp = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -171,9 +171,10 @@ namespace ArEx_DataBase
             this.управлениеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(760, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(758, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            
             // 
             // управлениеToolStripMenuItem
             // 
@@ -748,7 +749,7 @@ namespace ArEx_DataBase
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(751, 683);
+            this.tabPage1.Size = new System.Drawing.Size(749, 683);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Приход сырьевых материалов";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1060,7 +1061,6 @@ namespace ArEx_DataBase
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.exp);
             this.tabPage4.Controls.Add(this.panel10);
             this.tabPage4.Controls.Add(this.panel11);
             this.tabPage4.Controls.Add(this.dataGridView4);
@@ -1068,21 +1068,36 @@ namespace ArEx_DataBase
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(751, 683);
+            this.tabPage4.Size = new System.Drawing.Size(749, 683);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Расход сырья";
             this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // exp
+            // 
+            this.exp.BackColor = System.Drawing.Color.LightBlue;
+            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.exp.Location = new System.Drawing.Point(42, 229);
+            this.exp.Name = "exp";
+            this.exp.Size = new System.Drawing.Size(139, 44);
+            this.exp.TabIndex = 14;
+            this.exp.Text = "Печать";
+            this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.exp);
             this.panel10.Controls.Add(this.button9);
             this.panel10.Controls.Add(this.button10);
             this.panel10.Controls.Add(this.button11);
             this.panel10.Controls.Add(this.button12);
             this.panel10.Controls.Add(this.label28);
-            this.panel10.Location = new System.Drawing.Point(531, 329);
+            this.panel10.Location = new System.Drawing.Point(524, 329);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(217, 234);
+            this.panel10.Size = new System.Drawing.Size(217, 307);
             this.panel10.TabIndex = 13;
             // 
             // button9
@@ -1233,7 +1248,7 @@ namespace ArEx_DataBase
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(745, 252);
+            this.dataGridView4.Size = new System.Drawing.Size(738, 252);
             this.dataGridView4.TabIndex = 11;
             this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
@@ -1246,22 +1261,22 @@ namespace ArEx_DataBase
             this.panel12.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel12.Location = new System.Drawing.Point(3, 6);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(745, 57);
+            this.panel12.Size = new System.Drawing.Size(738, 57);
             this.panel12.TabIndex = 10;
             // 
             // textBox21
             // 
-            this.textBox21.Location = new System.Drawing.Point(593, 12);
+            this.textBox21.Location = new System.Drawing.Point(606, 19);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(135, 28);
+            this.textBox21.Size = new System.Drawing.Size(115, 28);
             this.textBox21.TabIndex = 3;
             this.textBox21.TextChanged += new System.EventHandler(this.textBox21_TextChanged);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ArEx_DataBase.Properties.Resources.free_icon_font_refresh_3917293;
-            this.pictureBox3.Location = new System.Drawing.Point(548, 12);
+            this.pictureBox3.Location = new System.Drawing.Point(561, 19);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(39, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1289,28 +1304,15 @@ namespace ArEx_DataBase
             this.tabControl1.Location = new System.Drawing.Point(0, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(759, 712);
+            this.tabControl1.Size = new System.Drawing.Size(757, 712);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // exp
-            // 
-            this.exp.BackColor = System.Drawing.Color.LightBlue;
-            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.exp.Location = new System.Drawing.Point(377, 519);
-            this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(139, 44);
-            this.exp.TabIndex = 14;
-            this.exp.Text = "Печать";
-            this.exp.UseVisualStyleBackColor = false;
-            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 727);
+            this.ClientSize = new System.Drawing.Size(758, 727);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);

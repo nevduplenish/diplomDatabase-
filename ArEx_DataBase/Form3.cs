@@ -1,4 +1,5 @@
-﻿    using System;
+﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,9 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-//using Application = Microsoft.Office.Interop.Excel.Application;
-using Excel = Microsoft.Office.Interop.Excel;
-using Microsoft.Office.Interop.Excel;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using NPOI.XSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace ArEx_DataBase
 {
@@ -34,6 +37,8 @@ namespace ArEx_DataBase
             _user = user;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+           
+
         }
 
         private void IsAdmin()
@@ -55,6 +60,7 @@ namespace ArEx_DataBase
             button11.Enabled = _user.IsAdmin;
             button10.Enabled = _user.IsAdmin;
             button9.Enabled = _user.IsAdmin;
+
         }
 
         private void CreateColumns()
@@ -74,9 +80,10 @@ namespace ArEx_DataBase
 
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
-            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetInt32(7), RowState.ModifiedNew);
+            dgw.Rows.Add(record.GetInt32(0), record.GetInt32(1), record.GetString(2), record.GetString(3), record.GetString(4), record.GetString(5), record.GetString(6), record.GetInt32(7), RowState.Modified);
         }
 
+       
         private void RefreshDataGrid(DataGridView dgw)
         {
             dgw.Rows.Clear();
@@ -108,6 +115,10 @@ namespace ArEx_DataBase
             RefreshDataGridRecipe(dataGridView3);
             CreateColumnsExpense();
             RefreshDataGridExpense(dataGridView4);
+            dataGridView1.Columns["IsNew"].Visible = false;
+            dataGridView2.Columns["IsNew"].Visible = false;
+            dataGridView3.Columns["IsNew"].Visible = false;
+            dataGridView4.Columns["IsNew"].Visible = false;
 
 
         }
@@ -303,6 +314,27 @@ namespace ArEx_DataBase
             while (reader.Read())
             {
                 ReadSingleRowStock(dgw, reader);
+
+                int remains = reader.GetInt32(3);
+
+                // Определяем границы запаса материала для окрашивания ячеек
+                int greenLimit = 1000;
+                int yellowLimit = 500;
+
+                // Окрашиваем ячейки в соответствующие цвета
+                if (remains >= greenLimit)
+                {
+                    dgw.Rows[dgw.Rows.Count - 1].Cells[3].Style.BackColor = Color.LightGreen;
+                }
+                else if (remains >= yellowLimit)
+                {
+                    dgw.Rows[dgw.Rows.Count - 1].Cells[3].Style.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    dgw.Rows[dgw.Rows.Count - 1].Cells[3].Style.BackColor = Color.Red;
+                }
+
             }
             reader.Close();
         }
@@ -782,6 +814,11 @@ namespace ArEx_DataBase
                 MessageBox.Show("Данные должны быть в числовом формате!");
             }
         }
+
+      
+
+
+
         private void textBox21_TextChanged(object sender, EventArgs e)
         {
             SearchExpense(dataGridView4);
@@ -811,7 +848,64 @@ namespace ArEx_DataBase
             ExpenseAddForm addfrm = new ExpenseAddForm();
             addfrm.Show();
         }
-       
+
+
+        private void ExportToExcel()
+        {
+            // Создание новой рабочей книги Excel
+            XSSFWorkbook workbook = new XSSFWorkbook();
+
+            // Создание нового листа
+            XSSFSheet sheet = (XSSFSheet)workbook.CreateSheet("Расход(сводная)");
+
+            // Создание заголовка таблицы
+            XSSFRow headerRow = (XSSFRow)sheet.CreateRow(0);
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                headerRow.CreateCell(i).SetCellValue(dataGridView1.Columns[i].HeaderText);
+            }
+
+            // Заполнение таблицы данными из dataGridView1
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                XSSFRow dataRow = (XSSFRow)sheet.CreateRow(i + 1);
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    dataRow.CreateCell(j).SetCellValue(dataGridView1.Rows[i].Cells[j].Value.ToString());
+                }
+            }
+
+            // Заполнение таблицы данными из dataGridView2
+            int startRow = dataGridView1.Rows.Count + 3;
+            XSSFRow headerRow2 = (XSSFRow)sheet.CreateRow(startRow - 1);
+            for (int i = 0; i < dataGridView4.Columns.Count; i++)
+            {
+                headerRow2.CreateCell(i).SetCellValue(dataGridView4.Columns[i].HeaderText);
+            }
+            for (int i = 0; i < dataGridView4.Rows.Count; i++)
+            {
+                XSSFRow dataRow2 = (XSSFRow)sheet.CreateRow(startRow + i);
+                for (int j = 0; j < dataGridView4.Columns.Count; j++)
+                {
+                    dataRow2.CreateCell(j).SetCellValue(dataGridView4.Rows[i].Cells[j].Value.ToString());
+                }
+            }
+
+            // Сохранение файла Excel
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xlsx)|*.xlsx";
+            sfd.FileName = "Расход(сводная).xlsx";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream fs = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    workbook.Write(fs);
+                }
+                MessageBox.Show("Файл сохранен.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
 
 
         /*************************************************************************************************************************************************************/
@@ -868,19 +962,17 @@ namespace ArEx_DataBase
 
         private void exp_Click(object sender, EventArgs e)
         {
-           /* Excel.Application exApp = new Excel.Application();
+            ExportToExcel();
+        }
 
-            exApp.Workbooks.Add();
-            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
-            int i, j;
-            for (i = 0; i <= dataGridView4.RowCount - 2; i++)
-            {
-                for (j = 0; j <= dataGridView4.ColumnCount - 1; j++)
-                {
-                    wsh.Cells[i + 1, j + 1] = dataGridView4[j, i].Value.ToString();
-                }
-            }
-            exApp.Visible = true;*/
+        private void button13_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridStock(dataGridView2);
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
