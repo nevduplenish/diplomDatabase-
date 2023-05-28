@@ -114,8 +114,8 @@ namespace ArEx_DataBase
             this.textBox_namemat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.exp = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.exp = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -171,16 +171,16 @@ namespace ArEx_DataBase
             this.управлениеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(758, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1190, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            
             // 
             // управлениеToolStripMenuItem
             // 
             this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
             this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.управлениеToolStripMenuItem.Text = "Управление";
+            this.управлениеToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -188,7 +188,7 @@ namespace ArEx_DataBase
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
-            this.toolStrip1.Location = new System.Drawing.Point(600, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(1036, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(115, 27);
             this.toolStrip1.TabIndex = 5;
@@ -209,7 +209,7 @@ namespace ArEx_DataBase
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(751, 683);
+            this.tabPage3.Size = new System.Drawing.Size(1182, 634);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Рецептура шихты";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@ namespace ArEx_DataBase
             this.panel7.Controls.Add(this.button7);
             this.panel7.Controls.Add(this.button8);
             this.panel7.Controls.Add(this.label18);
-            this.panel7.Location = new System.Drawing.Point(531, 329);
+            this.panel7.Location = new System.Drawing.Point(364, 329);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(217, 234);
             this.panel7.TabIndex = 9;
@@ -413,7 +413,7 @@ namespace ArEx_DataBase
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(745, 252);
+            this.dataGridView3.Size = new System.Drawing.Size(1176, 252);
             this.dataGridView3.TabIndex = 7;
             this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
@@ -426,12 +426,12 @@ namespace ArEx_DataBase
             this.panel9.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel9.Location = new System.Drawing.Point(3, 6);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(745, 57);
+            this.panel9.Size = new System.Drawing.Size(1238, 57);
             this.panel9.TabIndex = 6;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(593, 12);
+            this.textBox14.Location = new System.Drawing.Point(1036, 12);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(135, 28);
@@ -441,7 +441,7 @@ namespace ArEx_DataBase
             // pictureBox2
             // 
             this.pictureBox2.Image = global::ArEx_DataBase.Properties.Resources.free_icon_font_refresh_3917293;
-            this.pictureBox2.Location = new System.Drawing.Point(548, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(968, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -469,7 +469,7 @@ namespace ArEx_DataBase
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(751, 683);
+            this.tabPage2.Size = new System.Drawing.Size(1182, 634);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Хранилище";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -481,7 +481,7 @@ namespace ArEx_DataBase
             this.panel6.Controls.Add(this.button3);
             this.panel6.Controls.Add(this.button4);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(531, 329);
+            this.panel6.Location = new System.Drawing.Point(364, 329);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(217, 234);
             this.panel6.TabIndex = 5;
@@ -692,7 +692,7 @@ namespace ArEx_DataBase
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(745, 252);
+            this.dataGridView2.Size = new System.Drawing.Size(1171, 252);
             this.dataGridView2.TabIndex = 3;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -706,12 +706,12 @@ namespace ArEx_DataBase
             this.panel4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel4.Location = new System.Drawing.Point(3, 6);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(745, 57);
+            this.panel4.Size = new System.Drawing.Size(1171, 57);
             this.panel4.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(593, 12);
+            this.textBox1.Location = new System.Drawing.Point(1033, 19);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(135, 28);
@@ -721,7 +721,7 @@ namespace ArEx_DataBase
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ArEx_DataBase.Properties.Resources.free_icon_font_refresh_3917293;
-            this.pictureBox1.Location = new System.Drawing.Point(548, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(988, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(39, 35);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -749,7 +749,7 @@ namespace ArEx_DataBase
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(749, 683);
+            this.tabPage1.Size = new System.Drawing.Size(1182, 634);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Приход сырьевых материалов";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -763,12 +763,12 @@ namespace ArEx_DataBase
             this.panel1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Location = new System.Drawing.Point(3, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(745, 57);
+            this.panel1.Size = new System.Drawing.Size(1221, 57);
             this.panel1.TabIndex = 1;
             // 
             // textBox_search
             // 
-            this.textBox_search.Location = new System.Drawing.Point(593, 12);
+            this.textBox_search.Location = new System.Drawing.Point(1038, 19);
             this.textBox_search.Multiline = true;
             this.textBox_search.Name = "textBox_search";
             this.textBox_search.Size = new System.Drawing.Size(135, 28);
@@ -778,7 +778,7 @@ namespace ArEx_DataBase
             // pictureBox_refresh
             // 
             this.pictureBox_refresh.Image = global::ArEx_DataBase.Properties.Resources.free_icon_font_refresh_3917293;
-            this.pictureBox_refresh.Location = new System.Drawing.Point(548, 12);
+            this.pictureBox_refresh.Location = new System.Drawing.Point(993, 13);
             this.pictureBox_refresh.Name = "pictureBox_refresh";
             this.pictureBox_refresh.Size = new System.Drawing.Size(39, 35);
             this.pictureBox_refresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -808,7 +808,7 @@ namespace ArEx_DataBase
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(745, 252);
+            this.dataGridView1.Size = new System.Drawing.Size(1179, 219);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -819,7 +819,7 @@ namespace ArEx_DataBase
             this.panel3.Controls.Add(this.button_delete);
             this.panel3.Controls.Add(this.button_newrecord);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(531, 327);
+            this.panel3.Location = new System.Drawing.Point(369, 294);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(217, 311);
             this.panel3.TabIndex = 4;
@@ -905,7 +905,7 @@ namespace ArEx_DataBase
             this.panel2.Controls.Add(this.textBox_date);
             this.panel2.Controls.Add(this.textBox_namemat);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(4, 327);
+            this.panel2.Location = new System.Drawing.Point(11, 294);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(352, 311);
             this.panel2.TabIndex = 3;
@@ -1068,24 +1068,11 @@ namespace ArEx_DataBase
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(749, 683);
+            this.tabPage4.Size = new System.Drawing.Size(1182, 614);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Расход сырья";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
-            // 
-            // exp
-            // 
-            this.exp.BackColor = System.Drawing.Color.LightBlue;
-            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.exp.Location = new System.Drawing.Point(42, 229);
-            this.exp.Name = "exp";
-            this.exp.Size = new System.Drawing.Size(139, 44);
-            this.exp.TabIndex = 14;
-            this.exp.Text = "Печать";
-            this.exp.UseVisualStyleBackColor = false;
-            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // panel10
             // 
@@ -1095,10 +1082,23 @@ namespace ArEx_DataBase
             this.panel10.Controls.Add(this.button11);
             this.panel10.Controls.Add(this.button12);
             this.panel10.Controls.Add(this.label28);
-            this.panel10.Location = new System.Drawing.Point(524, 329);
+            this.panel10.Location = new System.Drawing.Point(321, 329);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(217, 307);
             this.panel10.TabIndex = 13;
+            // 
+            // exp
+            // 
+            this.exp.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exp.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.exp.Location = new System.Drawing.Point(42, 229);
+            this.exp.Name = "exp";
+            this.exp.Size = new System.Drawing.Size(139, 44);
+            this.exp.TabIndex = 14;
+            this.exp.Text = "Печать";
+            this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // button9
             // 
@@ -1173,7 +1173,7 @@ namespace ArEx_DataBase
             this.panel11.Controls.Add(this.label35);
             this.panel11.Location = new System.Drawing.Point(6, 329);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(352, 234);
+            this.panel11.Size = new System.Drawing.Size(309, 234);
             this.panel11.TabIndex = 12;
             // 
             // label30
@@ -1187,7 +1187,7 @@ namespace ArEx_DataBase
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(196, 65);
+            this.textBox16.Location = new System.Drawing.Point(167, 65);
             this.textBox16.Multiline = true;
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(125, 24);
@@ -1213,7 +1213,7 @@ namespace ArEx_DataBase
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(196, 136);
+            this.textBox19.Location = new System.Drawing.Point(167, 136);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(125, 24);
@@ -1221,7 +1221,7 @@ namespace ArEx_DataBase
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(196, 101);
+            this.textBox20.Location = new System.Drawing.Point(167, 101);
             this.textBox20.Multiline = true;
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(125, 24);
@@ -1248,7 +1248,7 @@ namespace ArEx_DataBase
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(738, 252);
+            this.dataGridView4.Size = new System.Drawing.Size(1171, 252);
             this.dataGridView4.TabIndex = 11;
             this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
@@ -1261,12 +1261,12 @@ namespace ArEx_DataBase
             this.panel12.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel12.Location = new System.Drawing.Point(3, 6);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(738, 57);
+            this.panel12.Size = new System.Drawing.Size(1171, 57);
             this.panel12.TabIndex = 10;
             // 
             // textBox21
             // 
-            this.textBox21.Location = new System.Drawing.Point(606, 19);
+            this.textBox21.Location = new System.Drawing.Point(1041, 13);
             this.textBox21.Multiline = true;
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(115, 28);
@@ -1276,7 +1276,7 @@ namespace ArEx_DataBase
             // pictureBox3
             // 
             this.pictureBox3.Image = global::ArEx_DataBase.Properties.Resources.free_icon_font_refresh_3917293;
-            this.pictureBox3.Location = new System.Drawing.Point(561, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(996, 13);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(39, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1304,7 +1304,7 @@ namespace ArEx_DataBase
             this.tabControl1.Location = new System.Drawing.Point(0, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(757, 712);
+            this.tabControl1.Size = new System.Drawing.Size(1190, 663);
             this.tabControl1.TabIndex = 7;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -1312,7 +1312,7 @@ namespace ArEx_DataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 727);
+            this.ClientSize = new System.Drawing.Size(1190, 664);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);

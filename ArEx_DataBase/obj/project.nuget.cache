@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XmPoIW4+JgFkaWL5PWMkoCcTIWtezOcIfrEvz9RIDuVOVq3sLEAvPZOdbsfRGoVVKpB2pLfPtPyRwsL/AxBSmQ==",
+  "dgSpecHash": "4phH+8l5O/ZB4MHKUprQ6nc9nDIaJPqrEwiXfJ/zX9CgyW+aoj8FAtikZ+tt3Sjsvl/ixVMPhqO6pQOgaFrooA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Desktop\\diplomDatabase-\\ArEx_DataBase\\ArEx_DataBase.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\Для диплома\\Приложение\\diplomDatabase-\\ArEx_DataBase\\ArEx_DataBase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\enums.net\\4.0.0\\enums.net.4.0.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\mathnet.numerics.signed\\4.15.0\\mathnet.numerics.signed.4.15.0.nupkg.sha512",

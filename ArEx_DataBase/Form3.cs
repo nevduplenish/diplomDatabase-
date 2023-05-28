@@ -14,6 +14,7 @@ using System.Runtime.Serialization.Json;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using NPOI.Util;
 
 namespace ArEx_DataBase
 {
@@ -173,19 +174,7 @@ namespace ArEx_DataBase
             read.Close();
         }
 
-        private void deleteRow()
-        {
-            int index = dataGridView1.CurrentCell.RowIndex;
 
-            dataGridView1.Rows[index].Visible = false;
-
-            if (dataGridView1.Rows[index].Cells[0].Value.ToString() == string.Empty)
-            {
-                dataGridView1.Rows[index].Cells[8].Value = RowState.Deleted;
-                return;
-            }
-
-        }
 
         private void Update()
         {
@@ -235,7 +224,30 @@ namespace ArEx_DataBase
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            deleteRow();
+            // deleteRow();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int id = Convert.ToInt32(row.Cells["Arrival_ID"].Value);
+                        //удаляем запись из базы данных
+                        string queryString = $"DELETE FROM Arrival WHERE Arrival_ID = {id}";
+
+                        SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+                        dataBase.openConnection();
+
+                        int result = command.ExecuteNonQuery();
+
+                        dataBase.closeConnection();
+
+                        //удаляем запись из DataGridView
+                        dataGridView1.Rows.Remove(row);
+                    }
+                }
+            }
         }
 
         private void button_save_Click(object sender, EventArgs e)
@@ -318,8 +330,8 @@ namespace ArEx_DataBase
                 int remains = reader.GetInt32(3);
 
                 // Определяем границы запаса материала для окрашивания ячеек
-                int greenLimit = 1000;
-                int yellowLimit = 500;
+                int greenLimit = 500;
+                int yellowLimit = 250;
 
                 // Окрашиваем ячейки в соответствующие цвета
                 if (remains >= greenLimit)
@@ -360,14 +372,29 @@ namespace ArEx_DataBase
         }
         private void deleteRowStock()
         {
-            int index = dataGridView2.CurrentCell.RowIndex;
-
-            dataGridView2.Rows[index].Visible = false;
-
-            if (dataGridView2.Rows[index].Cells[0].Value.ToString() == string.Empty)
+           
+            if (dataGridView2.SelectedRows.Count > 0)
             {
-                dataGridView2.Rows[index].Cells[6].Value = RowState.Deleted;
-                return;
+                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int id = Convert.ToInt32(row.Cells["Stock_ID"].Value);
+                        //удаляем запись из базы данных
+                        string queryString = $"DELETE FROM Stock WHERE Stock_ID = {id}";
+
+                        SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+                        dataBase.openConnection();
+
+                        int result = command.ExecuteNonQuery();
+
+                        dataBase.closeConnection();
+
+                        //удаляем запись из DataGridView
+                        dataGridView2.Rows.Remove(row);
+                    }
+                }
             }
 
         }
@@ -561,14 +588,29 @@ namespace ArEx_DataBase
 
         private void deleteRowRecipe()
         {
-            int index = dataGridView3.CurrentCell.RowIndex;
-
-            dataGridView3.Rows[index].Visible = false;
-
-            if (dataGridView3.Rows[index].Cells[0].Value.ToString() == string.Empty)
+            
+            if (dataGridView3.SelectedRows.Count > 0)
             {
-                dataGridView3.Rows[index].Cells[5].Value = RowState.Deleted;
-                return;
+                foreach (DataGridViewRow row in dataGridView3.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int id = Convert.ToInt32(row.Cells["Recipe_ID"].Value);
+                        //удаляем запись из базы данных
+                        string queryString = $"DELETE FROM Recipe WHERE Recipe_ID = {id}";
+
+                        SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+                        dataBase.openConnection();
+
+                        int result = command.ExecuteNonQuery();
+
+                        dataBase.closeConnection();
+
+                        //удаляем запись из DataGridView
+                        dataGridView3.Rows.Remove(row);
+                    }
+                }
             }
 
         }
@@ -740,6 +782,7 @@ namespace ArEx_DataBase
 
         private void deleteRowExpense()
         {
+            /*
             int index = dataGridView4.CurrentCell.RowIndex;
 
             dataGridView4.Rows[index].Visible = false;
@@ -748,6 +791,30 @@ namespace ArEx_DataBase
             {
                 dataGridView4.Rows[index].Cells[4].Value = RowState.Deleted;
                 return;
+            }
+            */
+            if (dataGridView4.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dataGridView4.SelectedRows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        int id = Convert.ToInt32(row.Cells["Expense_ID"].Value);
+                        //удаляем запись из базы данных
+                        string queryString = $"DELETE FROM Expense WHERE Expense_ID = {id}";
+
+                        SqlCommand command = new SqlCommand(queryString, dataBase.getConnection());
+
+                        dataBase.openConnection();
+
+                        int result = command.ExecuteNonQuery();
+
+                        dataBase.closeConnection();
+
+                        //удаляем запись из DataGridView
+                        dataGridView4.Rows.Remove(row);
+                    }
+                }
             }
 
         }
@@ -852,59 +919,83 @@ namespace ArEx_DataBase
 
         private void ExportToExcel()
         {
-            // Создание новой рабочей книги Excel
-            XSSFWorkbook workbook = new XSSFWorkbook();
 
-            // Создание нового листа
-            XSSFSheet sheet = (XSSFSheet)workbook.CreateSheet("Расход(сводная)");
+            
+             // Создание новой рабочей книги Excel
+             XSSFWorkbook workbook = new XSSFWorkbook();
+             // Создание нового листа
+             XSSFSheet sheet = (XSSFSheet)workbook.CreateSheet("Расход(сводная)");
 
-            // Создание заголовка таблицы
-            XSSFRow headerRow = (XSSFRow)sheet.CreateRow(0);
-            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+             // Создание заголовка таблицы 1
+             XSSFRow headerRow1 = (XSSFRow)sheet.CreateRow(0);
+             for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
+             {
+                 headerRow1.CreateCell(i).SetCellValue(dataGridView1.Columns[i].HeaderText);
+             }
+
+             // Заполнение таблицы 1 данными из dataGridView1
+             for (int i = 0; i < dataGridView1.Rows.Count; i++)
+             {
+                 XSSFRow dataRow1 = (XSSFRow)sheet.CreateRow(i + 1);
+                 for (int j = 0; j < dataGridView1.Columns.Count - 1; j++)
+                 {
+                     dataRow1.CreateCell(j).SetCellValue(dataGridView1.Rows[i].Cells[j].Value.ToString());
+                 }
+             }
+
+             // Создание заголовка таблицы 2
+             XSSFRow headerRow2 = (XSSFRow)sheet.CreateRow(dataGridView1.Rows.Count + 3);
+             for (int i = 0; i < dataGridView4.Columns.Count - 1; i++)
+             {
+                 headerRow2.CreateCell(i).SetCellValue(dataGridView4.Columns[i].HeaderText);
+             }
+
+             // Заполнение таблицы 2 данными из dataGridView4
+             for (int i = 0; i < dataGridView4.Rows.Count; i++)
+             {
+                 XSSFRow dataRow2 = (XSSFRow)sheet.CreateRow(dataGridView1.Rows.Count + 4 + i);
+                 for (int j = 0; j < dataGridView4.Columns.Count - 1; j++)
+                 {
+                     dataRow2.CreateCell(j).SetCellValue(dataGridView4.Rows[i].Cells[j].Value.ToString());
+                 }
+             }
+
+            // Выделение текста заголовков столбцов жирным шрифтом
+            XSSFCellStyle headerCellStyle = (XSSFCellStyle)workbook.CreateCellStyle();
+            XSSFFont headerFont = (XSSFFont)workbook.CreateFont();
+            headerFont.IsBold = true;
+            headerCellStyle.SetFont(headerFont);
+
+            // Применение стиля к ячейкам заголовка таблицы 1
+            for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
             {
-                headerRow.CreateCell(i).SetCellValue(dataGridView1.Columns[i].HeaderText);
+                XSSFCell headerCell1 = (XSSFCell)headerRow1.GetCell(i);
+                headerCell1.CellStyle = headerCellStyle;
             }
 
-            // Заполнение таблицы данными из dataGridView1
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            // Применение стиля к ячейкам заголовка таблицы 2
+            for (int i = 0; i < dataGridView4.Columns.Count - 1; i++)
             {
-                XSSFRow dataRow = (XSSFRow)sheet.CreateRow(i + 1);
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    dataRow.CreateCell(j).SetCellValue(dataGridView1.Rows[i].Cells[j].Value.ToString());
-                }
-            }
-
-            // Заполнение таблицы данными из dataGridView2
-            int startRow = dataGridView1.Rows.Count + 3;
-            XSSFRow headerRow2 = (XSSFRow)sheet.CreateRow(startRow - 1);
-            for (int i = 0; i < dataGridView4.Columns.Count; i++)
-            {
-                headerRow2.CreateCell(i).SetCellValue(dataGridView4.Columns[i].HeaderText);
-            }
-            for (int i = 0; i < dataGridView4.Rows.Count; i++)
-            {
-                XSSFRow dataRow2 = (XSSFRow)sheet.CreateRow(startRow + i);
-                for (int j = 0; j < dataGridView4.Columns.Count; j++)
-                {
-                    dataRow2.CreateCell(j).SetCellValue(dataGridView4.Rows[i].Cells[j].Value.ToString());
-                }
+                XSSFCell headerCell2 = (XSSFCell)headerRow2.GetCell(i);
+                headerCell2.CellStyle = headerCellStyle;
             }
 
             // Сохранение файла Excel
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "Excel Documents (*.xlsx)|*.xlsx";
-            sfd.FileName = "Расход(сводная).xlsx";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream fs = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
-                {
-                    workbook.Write(fs);
-                }
-                MessageBox.Show("Файл сохранен.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+             sfd.Filter = "Excel Documents (*.xlsx)|*.xlsx";
+             sfd.FileName = "Расход(сводная).xlsx";
+             if (sfd.ShowDialog() == DialogResult.OK)
+             {
+                 using (FileStream fs = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                 {
+                     workbook.Write(fs);
+                 }
+                 MessageBox.Show("Файл сохранен.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }
+            
+         
 
+        }
 
 
 
@@ -973,6 +1064,12 @@ namespace ArEx_DataBase
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PanelAdmin pa = new PanelAdmin();
+            pa.Show();
         }
     }
 }
